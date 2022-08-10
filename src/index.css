@@ -16,10 +16,10 @@ code {
   max-width: 1180px;
   margin: 0 auto;
   padding: 0 40px;
-  color: white
+  color: rgb(37, 34, 34)
 }
 
 a{
-  color: white;
+  color: rgb(139, 30, 30);
   text-decoration: none;
 }
