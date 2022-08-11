@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+    background-color: rgb(25, 26, 28);
 }
 
 code {
@@ -12,14 +13,18 @@ code {
     monospace;
 }
 
-.App{
-  max-width: 1180px;
+.App {
+  max-width: 1180px;;
   margin: 0 auto;
   padding: 0 40px;
-  color: rgb(37, 34, 34)
+  color: white;
 }
 
-a{
-  color: rgb(139, 30, 30);
+a {
+  color: white;
   text-decoration: none;
+}
+
+.secondary-text {
+  color: rgb(80, 82, 84);
 }
