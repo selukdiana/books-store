@@ -1,4 +1,4 @@
-export interface IGameProps {
+export interface IBookProps {
   image: string;
   title: string;
   genres: Array<string>;
@@ -8,6 +8,6 @@ export interface IGameProps {
   description: string;
 }
 
-export interface IGameBuyProps {
-  game: IGameProps;
+export interface IBookBuyProps {
+  book: IBookProps;
 }

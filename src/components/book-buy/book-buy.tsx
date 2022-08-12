@@ -1,19 +1,19 @@
 import React from 'react';
-import './game-buy.css';
-import { IGameProps, IGameBuyProps } from '../../interfaces';
-import {Button} from '../button'
+import './book-buy.css';
+import { IBookBuyProps } from '../../types';
+import { Button } from '../button';
 
-
-export const GameBuy = (game: IGameBuyProps) => {
+export const BookBuy = (book: IBookBuyProps) => {
   const isItemInCart = true;
   return (
-    <div className="game-buy">
-      <span className="game-buy__price">{game.game.price} руб.</span>
+    <div className="book-buy">
+      <span className="book-buy__price">{book.book.price}</span>
       <Button
         type={isItemInCart ? 'secondary' : 'primary'}
         // onClick={handleClick}
       >
         {/* {isItemInCart ? 'Убрать из корзины' : 'В Корзину'} */}
+        {['В Корзину']}
       </Button>
     </div>
   );
