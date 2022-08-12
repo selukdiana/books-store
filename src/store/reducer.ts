@@ -1,4 +1,7 @@
-const initialState = {
+import { IState } from './types';
+import { AnyAction } from 'redux';
+
+const initialState: IState = {
   books: [],
 };
 
@@ -7,8 +10,8 @@ const initialState = {
 
 export const rootReducer = (
   state = initialState,
-  action: { type: any; booksArray: any }
-) => {
+  action: AnyAction
+): IState => {
   switch (action.type) {
     case 'PUSH_BOOKS':
       return Object.assign({ ...state }, { books: action.booksArray });

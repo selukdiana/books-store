@@ -4,26 +4,28 @@ import { BookItem } from '../../components/book-item';
 import { useDispatch, useSelector } from 'react-redux';
 import { pushBooks } from '../../store/actions';
 import { IState } from '../../store/types';
-import {IBook} from '../../types'
-
+import { IBook } from '../../types';
+import { getNewReleasesBooksThunk } from '../../store/thunks/getNewReleasesBooksThunk';
 
 export const HomePage = () => {
-  const dispatch = useDispatch();
-  const books:any = useSelector<IState, Array<IBook>>((state) => state.books);
+  const dispatch = useDispatch<any>();
+  const books = useSelector<IState, Array<IBook>>((state) => state.books);
 
   useEffect(() => {
-    fetch('https://api.itbook.store/1.0/new')
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        dispatch(pushBooks(data.books));
-      });
+    // fetch('https://api.itbook.store/1.0/new')
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //     dispatch(pushBooks(data.books));
+    //   });
+
+    dispatch(getNewReleasesBooksThunk());
 
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }, []);
   return (
     <div className="home-page">
-      {books.map((book:IBook) => (
+      {books.map((book: IBook) => (
         <BookItem book={book} key={book.isbn13} />
       ))}
     </div>
