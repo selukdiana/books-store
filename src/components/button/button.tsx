@@ -5,7 +5,7 @@ import './button.css';
 interface IButtonProps {
   onClick?: MouseEventHandler<HTMLButtonElement>;
   type: string;
-  children: Array<string>;
+  children?: string;
   size?: string;
 }
 

@@ -1,3 +1,6 @@
+import { MouseEventHandler } from 'react';
+import { IBook } from '.';
+
 export interface IBookProps {
   image: string;
   title: string;
@@ -10,4 +13,16 @@ export interface IBookProps {
 
 export interface IBookBuyProps {
   book: IBookProps;
+}
+
+export interface ICartMenuProps {
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+}
+
+export interface ICartItemProps {
+  key: string;
+  image: string;
+  price: string;
+  title: string;
+  book: IBook;
 }

@@ -1,5 +1,15 @@
-import {IBook} from '../types'
+import { IBook } from '../types';
 
-export interface IState{
-  books: Array<IBook>|[]
+export interface IState {
+  books: Array<IBook> | [];
+}
+
+export interface ICartState {
+  books: Array<IBook> | [];
+  count: number;
+}
+
+export interface IRootState {
+  cart: ICartState;
+  newReleases: IState;
 }

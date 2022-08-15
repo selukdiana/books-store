@@ -25,9 +25,21 @@ export const HomePage = () => {
   }, []);
   return (
     <div className="home-page">
-      {books.map((book: IBook) => (
+      {/* {books.map((book: IBook) => (
         <BookItem book={book} key={book.isbn13} />
-      ))}
+      ))} */}
+
+      <BookItem
+        book={{
+          image: 'https://itbook.store/img/books/9781642002140.png',
+          isbn13: '9781642002140',
+          price: '$23.02',
+          subtitle: '',
+          title: 'Deno Succinctly',
+          url: 'https://itbook.store/books/9781642002140',
+        }}
+        key={1}
+      ></BookItem>
     </div>
   );
 };
