@@ -19,6 +19,8 @@ export interface ICartMenuProps {
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
+export type IFavoriteMenuProps = ICartMenuProps
+
 export interface ICartItemProps {
   key: string;
   image: string;
@@ -26,3 +28,5 @@ export interface ICartItemProps {
   title: string;
   book: IBook;
 }
+
+export type IFavoriteItemProps = ICartItemProps

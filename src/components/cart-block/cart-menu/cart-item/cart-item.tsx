@@ -2,8 +2,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import './cart-item.css';
-import { getItemFromCart } from '../../store/actions';
-import { ICartItemProps } from '../../types/props';
+import { getItemFromCart } from '../../../../store/actions';
+import { ICartItemProps } from '../../../../types/props';
 
 export const CartItem = ({ title, price, book }: ICartItemProps) => {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ export const CartItem = ({ title, price, book }: ICartItemProps) => {
 
   return (
     <div className="cart-item">
-      <span>{title} </span>
+      <span className="cart-item__title">{title} </span>
       <div className="cart-item__price">
         <span>{price} руб.</span>
         <AiOutlineCloseCircle
