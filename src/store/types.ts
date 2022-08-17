@@ -9,7 +9,10 @@ export interface ICartState {
   count: number;
 }
 
+export type IFavoriteState = ICartState;
+
 export interface IRootState {
   cart: ICartState;
   newReleases: IState;
+  favorite: IFavoriteState;
 }

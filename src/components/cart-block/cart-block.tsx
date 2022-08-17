@@ -7,7 +7,7 @@ import { IBook } from '../../types';
 import { CartMenu } from '../cart-menu';
 import { calcTotalPrice } from '../../utils';
 import { useHistory } from 'react-router-dom';
-import { ItemsInCart } from '../items-in-cart';
+import { ItemsInCart } from './items-in-cart';
 
 export const CartBlock = () => {
   const items: Array<IBook> = useSelector<IRootState, Array<IBook>>(

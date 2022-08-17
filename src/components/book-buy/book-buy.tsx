@@ -28,7 +28,6 @@ export const BookBuy = (book: IBookBuyProps) => {
         onClick={handleClick}
       >
         {isItemInCart ? 'Убрать из корзины' : 'В Корзину'}
-        {/* {'В Корзину'} */}
       </Button>
     </div>
   );

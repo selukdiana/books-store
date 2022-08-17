@@ -11,3 +11,11 @@ export const setItemInCart = (book: IBook) => {
 export const getItemFromCart = (book: IBook) => {
   return { type: 'GET_ITEM_FROM_CART', book };
 };
+
+export const setItemInFavorite = (book: IBook) => {
+  return { type: 'SET_ITEM_IN_FAVORITE', book };
+};
+
+export const getItemFromFavorite = (book: IBook) => {
+  return { type: 'GET_ITEM_FROM_FAVORITE', book };
+};

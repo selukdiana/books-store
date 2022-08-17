@@ -2,6 +2,8 @@ import React from 'react';
 import './header.css';
 import { Link } from 'react-router-dom';
 import {CartBlock} from '../cart-block'
+import { UserBlock } from '../user-block';
+import { FavoriteBlock } from '../favorite-block';
 
 export const Header = () => {
   return (
@@ -12,7 +14,9 @@ export const Header = () => {
         </Link>
       </div>
       <div className="wrapper header__cart-btn-wrapper">
-        <CartBlock/>
+        <FavoriteBlock/>
+        <CartBlock />
+        <UserBlock/>
       </div>
     </div>
   );
