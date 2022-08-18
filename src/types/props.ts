@@ -2,24 +2,14 @@ import { MouseEventHandler } from 'react';
 import { IBook } from '.';
 
 export interface IBookProps {
-  image: string;
-  title: string;
-  genres: Array<string>;
-  video: string;
-  price: number;
-  id: number;
-  description: string;
-}
-
-export interface IBookBuyProps {
-  book: IBookProps;
+  book: IBook;
 }
 
 export interface ICartMenuProps {
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-export type IFavoriteMenuProps = ICartMenuProps
+export type IFavoriteMenuProps = ICartMenuProps;
 
 export interface ICartItemProps {
   key: string;
@@ -29,4 +19,4 @@ export interface ICartItemProps {
   book: IBook;
 }
 
-export type IFavoriteItemProps = ICartItemProps
+export type IFavoriteItemProps = ICartItemProps;

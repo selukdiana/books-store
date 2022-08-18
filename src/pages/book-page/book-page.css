@@ -1,0 +1,23 @@
+.book-page__content {
+    display: flex;
+    gap: 20px
+}
+
+.book-page__left {
+    width: 40%;
+}
+
+.book-page__right {
+    width: 70%;
+}
+
+.book-page__buy-book {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.book-page__description{
+    margin-top: 40px;
+    font-size: 20px;
+}

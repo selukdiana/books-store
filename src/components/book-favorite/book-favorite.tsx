@@ -1,6 +1,6 @@
 import React, { MouseEventHandler, useState } from 'react';
 import './book-favorite.css';
-import { IBookBuyProps } from '../../types';
+import { IBookProps } from '../../types';
 import { Button } from '../button';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -10,9 +10,9 @@ import {
   setItemInFavorite,
 } from '../../store/actions';
 import { IRootState } from '../../store/types';
-import { FavoriteButton } from '../../favorite-button';
+import { FavoriteButton } from '../favorite-button';
 
-export const BookFavorite = (book: IBookBuyProps) => {
+export const BookFavorite = (book: IBookProps) => {
   const dispatch = useDispatch();
   const items = useSelector((state: IRootState) => state.favorite.books);
   const [isItemFavorite, setIsItemFavorite] = useState(

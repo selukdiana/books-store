@@ -6,8 +6,8 @@ import { IState, IRootState } from '../../store/types';
 import { IBook } from '../../types';
 import { CartMenu } from './cart-menu';
 import { calcTotalPrice } from '../../utils';
-import { useHistory } from 'react-router-dom';
 import { ItemsInCart } from './items-in-cart';
+import { useNavigate } from 'react-router-dom';
 
 export const CartBlock = () => {
   const items: Array<IBook> = useSelector<IRootState, Array<IBook>>(
@@ -16,14 +16,14 @@ export const CartBlock = () => {
 
   const [isCartMenuVisible, setIsCartMenuVisible] = useState(false);
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const totalPrice = calcTotalPrice(items);
 
   const handleGoToOrderClick = useCallback(() => {
     setIsCartMenuVisible(false);
-    history.push('/order');
-  }, [history]);
+    navigate('/order');
+  }, [navigate]);
 
   return (
     <div className="cart-block">
@@ -41,8 +41,8 @@ export const CartBlock = () => {
       ) : (
         <span className="total-price">{`$00.00`}</span>
       )}
-      {isCartMenuVisible && <CartMenu />}
-      {/* {isCartMenuVisible && <CartMenu onClick={handleGoToOrderClick} />} должнобыть */}
+      {/* {isCartMenuVisible && <CartMenu />} */}
+      {isCartMenuVisible && <CartMenu onClick={handleGoToOrderClick} />}
     </div>
   );
 };

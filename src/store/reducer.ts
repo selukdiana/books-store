@@ -1,4 +1,4 @@
-import { IState, ICartState, IFavoriteState } from './types';
+import { IState, ICartState, IFavoriteState, IBookState } from './types';
 import { AnyAction, combineReducers } from 'redux';
 import { IBook } from '../types';
 
@@ -53,7 +53,7 @@ export const cartReducer = (
   }
 };
 
-const initialStateFavorite: ICartState = {
+const initialStateFavorite: IFavoriteState = {
   books: [],
   count: 0,
 };
@@ -85,7 +85,24 @@ export const favoriteReducer = (
   }
 };
 
+const initialStateBook: IBookState = {
+  currentBook: null,
+};
+
+export const bookReducer = (
+  state = initialStateBook,
+  action: AnyAction
+): IBookState => {
+  switch (action.type) {
+    case 'SET_CURRENT_BOOK':
+      return { currentBook: action.book };
+    default:
+      return state;
+  }
+};
+
 export const rootReducer = combineReducers({
+  book: bookReducer,
   newReleases: newReleasesBooksReducer,
   cart: cartReducer,
   favorite: favoriteReducer,

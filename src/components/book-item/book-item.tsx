@@ -1,20 +1,26 @@
 import React from 'react';
 import './book-item.css';
 import { BookGenre } from '../book-genre';
-import { IBookBuyProps } from '../../types';
+import { IBookProps } from '../../types';
 import { BookBuy } from '../book-buy';
 import { BookCover } from '../book-cover';
-import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { BookFavorite } from '../book-favorite';
+import { setCurrentBook } from '../../store/actions';
+import { IRootState } from '../../store/types';
+import { useNavigate } from 'react-router-dom';
 
-export const BookItem = (book: IBookBuyProps) => {
+export const BookItem = (book: IBookProps) => {
   const bookItem = book.book;
-  const history = useHistory();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const state = useSelector<IRootState, any>((state) => {
+    return state;
+  });
   const handleClick = () => {
-    // dispatch(setCurrentBook(book));
-    history.push(`/app/${book.book.title}`);
+    dispatch(setCurrentBook(bookItem));
+    console.log(state);
+    navigate(`/app/${bookItem.title}`);
   };
   return (
     <div className="book-item" onClick={handleClick}>

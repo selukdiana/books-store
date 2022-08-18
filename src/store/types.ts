@@ -15,4 +15,9 @@ export interface IRootState {
   cart: ICartState;
   newReleases: IState;
   favorite: IFavoriteState;
+  book: IBookState;
+}
+
+export interface IBookState {
+  currentBook: IBook | null;
 }

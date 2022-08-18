@@ -1,3 +1,4 @@
+import exp from 'constants';
 import { IBook } from '../types';
 
 export const pushBooks = (booksArray: Array<IBook> | []) => {
@@ -18,4 +19,8 @@ export const setItemInFavorite = (book: IBook) => {
 
 export const getItemFromFavorite = (book: IBook) => {
   return { type: 'GET_ITEM_FROM_FAVORITE', book };
+};
+
+export const setCurrentBook = (book: IBook) => {
+  return { type: 'SET_CURRENT_BOOK', book };
 };

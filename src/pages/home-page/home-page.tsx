@@ -9,7 +9,9 @@ import { getNewReleasesBooksThunk } from '../../store/thunks/getNewReleasesBooks
 
 export const HomePage = () => {
   const dispatch = useDispatch<any>();
-  let books = useSelector<IRootState, Array<IBook>>((state) => state.newReleases.books);
+  let books = useSelector<IRootState, Array<IBook>>(
+    (state) => state.newReleases.books
+  );
 
   useEffect(() => {
     // fetch('https://api.itbook.store/1.0/new')
