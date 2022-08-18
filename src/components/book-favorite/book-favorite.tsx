@@ -15,13 +15,12 @@ import { FavoriteButton } from '../favorite-button';
 export const BookFavorite = (book: IBookProps) => {
   const dispatch = useDispatch();
   const items = useSelector((state: IRootState) => state.favorite.books);
-  const [isItemFavorite, setIsItemFavorite] = useState(
-    items.some((item) => item.isbn13 == book.book.isbn13)
-  );
+  const isItemFavorite= items.some((item) => item.isbn13 == book.book.isbn13)
+  
 
   const handleClick = (event: React.MouseEvent<SVGElement>) => {
     event.stopPropagation();
-    setIsItemFavorite(!isItemFavorite);
+    
     isItemFavorite
       ? dispatch(getItemFromFavorite(book.book))
       : dispatch(setItemInFavorite(book.book));

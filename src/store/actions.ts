@@ -24,3 +24,7 @@ export const getItemFromFavorite = (book: IBook) => {
 export const setCurrentBook = (book: IBook) => {
   return { type: 'SET_CURRENT_BOOK', book };
 };
+
+export const clearFavorite = () => {
+  return { type: 'CLEAR_FAVORITE'}
+}

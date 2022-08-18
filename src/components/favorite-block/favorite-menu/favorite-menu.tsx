@@ -1,14 +1,21 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { clearFavorite } from '../../../store/actions';
 import { IRootState } from '../../../store/types';
-import { IFavoriteMenuProps } from '../../../types/props';
+
 import { calcTotalPrice } from '../../../utils';
 import { Button } from '../../button';
 import { FavoriteItem } from './favorite-item';
 import './favorite-menu.css';
 
-export const FavoriteMenu = ({ onClick }: IFavoriteMenuProps) => {
+export const FavoriteMenu = () => {
   const items = useSelector((state: IRootState) => state.favorite.books);
+
+  const dispatch = useDispatch()
+  const handleClick = () => {
+    dispatch(clearFavorite())
+  }
+
   return (
     <div className="favorite-menu">
       <div className="favorite-menu__books-list">
@@ -26,7 +33,7 @@ export const FavoriteMenu = ({ onClick }: IFavoriteMenuProps) => {
       </div>
       {items.length > 0 ? (
         <div className="favorite-menu__arrange">
-          <Button type="secondary" size="m" onClick={onClick}>
+          <Button type="secondary" size="m" onClick={handleClick}>
             Очистить
           </Button>
         </div>
