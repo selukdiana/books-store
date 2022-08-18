@@ -9,11 +9,6 @@
   padding-bottom: 40px;
 }
 
-.book-item:not(:last-child) {
-  margin-bottom: 30px;
-  margin-right: 50px;
-}
-
 .book-item__title {
   font-size: 18px;
   font-weight: bold;

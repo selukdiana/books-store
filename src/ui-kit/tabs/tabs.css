@@ -1,10 +1,11 @@
-.Tabs {
+.tabs {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  margin-bottom: 20px;
 }
 
-.Tab {
+.tab {
   padding: 16px 24px;
   border: 1px solid transparent;
   cursor: pointer;
@@ -12,17 +13,17 @@
 }
 
 .tab__selected {
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid rgb(85, 88, 237);
 }
 
-.tab :hover {
-  background-color: grey;
+.tab:hover {
+  background-color: rgb(43, 42, 46);
 }
 
 .tablabel {
-  color: darkslategrey;
+  color: rgb(134, 134, 154);
 }
 
-.tab-label__selected {
-  color: red;
+.tablabel__selected {
+  color: rgb(85, 88, 237);
 }

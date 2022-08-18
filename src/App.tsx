@@ -6,6 +6,7 @@ import { HomePage } from './pages/home-page';
 import { Header } from './components/header';
 import { store } from './store';
 import { BookPage } from './pages/book-page';
+import { AuthPage } from './pages/auth-page';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/app/:isbn13" element={<BookPage />} />
+            <Route path="/auth" element={<AuthPage />} />
           </Routes>
         </div>
       </Router>

@@ -1,4 +1,6 @@
-.home-page{
+.home-page {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+  row-gap: 30px;
 }
