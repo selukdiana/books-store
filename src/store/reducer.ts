@@ -48,6 +48,11 @@ export const cartReducer = (
           count: state.count - 1,
         }
       );
+    case 'CLEAR_CART':
+      return {
+        books: [],
+        count: 0,
+      };
     default:
       return state;
   }

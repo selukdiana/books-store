@@ -28,3 +28,7 @@ export const setCurrentBook = (book: IBook) => {
 export const clearFavorite = () => {
   return { type: 'CLEAR_FAVORITE'}
 }
+
+export const clearCart = () => {
+  return { type: 'CLEAR_CART' };
+};

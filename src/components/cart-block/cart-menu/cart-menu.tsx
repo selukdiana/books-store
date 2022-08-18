@@ -1,5 +1,6 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { clearCart } from '../../../store/actions';
 import { IRootState } from '../../../store/types';
 import { ICartMenuProps } from '../../../types/props';
 import { calcTotalPrice } from '../../../utils';
@@ -11,6 +12,11 @@ import './cart-menu.css';
 
 export const CartMenu = ({ onClick }: ICartMenuProps) => {
   const items = useSelector((state: IRootState) => state.cart.books);
+
+  const dispatch = useDispatch()
+  const handleClick = ()=>{
+    dispatch(clearCart())
+  }
   return (
     <div className="cart-menu">
       <div className="cart-menu__books-list">
@@ -32,9 +38,15 @@ export const CartMenu = ({ onClick }: ICartMenuProps) => {
             <span>Итого:</span>
             <span>{`\$${calcTotalPrice(items)}`}</span>
           </div>
-          <Button type="primary" size="m" onClick={onClick}>
+          <div className="cart-menu__btns">
+            <Button type="primary" size="m" onClick={onClick}>
             Оформить заказ
-          </Button>
+            </Button>
+            <Button type="secondary" size="m" onClick={handleClick}>
+              Очистить
+            </Button>
+          </div>
+          
         </div>
       ) : null}
     </div>
