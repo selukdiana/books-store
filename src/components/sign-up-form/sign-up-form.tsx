@@ -1,18 +1,20 @@
 import React from 'react';
-import './sign-in-form.css';
+import './sign-up-form.css';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 interface IFormInput {
   email: string;
   password: string;
+  confirmPassword: string;
 }
 
-export const SignInForm = () => {
+export const SignUpForm = () => {
   const {
     register,
     formState: { errors, isValid },
     handleSubmit,
     reset,
+    watch
   } = useForm<IFormInput>({
     mode: 'onBlur',
   });
@@ -77,7 +79,36 @@ export const SignInForm = () => {
         }`}</span>
       </div>
       <div className="form__field">
-        <input type="submit" value="Sign In" disabled={!isValid} />
+        <input
+          type="password"
+          placeholder="••••••••••••"
+          {...register('confirmPassword', {
+            required: 'Required field',
+            minLength: {
+              value: 6,
+              message: 'Please enter more than 6 characters',
+            },
+            maxLength: {
+              value: 14,
+              message: 'Please enter less than 14 characters',
+            },
+            pattern: {
+              value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/,
+              message: 'Password must contain A-Z, a-z, 0-9',
+            },
+            validate: (val: string) => {
+              if (watch('password') != val) {
+                return 'Your passwords don\'t match';
+              }
+            },
+          })}
+        />
+        <span className="error-field">{`${
+          errors?.confirmPassword?.message || ''
+        }`}</span>
+      </div>
+      <div className="form__field">
+        <input type="submit" value="Sign Up" disabled={!isValid} />
       </div>
     </form>
   );
