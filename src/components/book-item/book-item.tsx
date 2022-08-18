@@ -13,14 +13,8 @@ import { useNavigate } from 'react-router-dom';
 export const BookItem = (book: IBookProps) => {
   const bookItem = book.book;
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const state = useSelector<IRootState, any>((state) => {
-    return state;
-  });
   const handleClick = () => {
-    dispatch(setCurrentBook(bookItem));
-    console.log(state);
-    navigate(`/app/${bookItem.title}`);
+    navigate(`/app/${bookItem.isbn13}`);
   };
   return (
     <div className="book-item" onClick={handleClick}>

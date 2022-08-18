@@ -1,22 +1,33 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { AdditionalList } from '../../components/additional-list';
 import { BookBuy } from '../../components/book-buy';
 import { BookCover } from '../../components/book-cover';
 import { BookFavorite } from '../../components/book-favorite';
 import { BookGenre } from '../../components/book-genre';
 import { Rating } from '../../components/rating';
-import {} from '../../store/types';
+import { getBookThunk } from '../../store/thunks/getBookThunk';
+import { IRootState } from '../../store/types';
 import { IBook } from '../../types';
 import './book-page.css';
 
 export const BookPage = () => {
-  // const book = useSelector<IRootState, IBook | null>((state) => {
-  //   console.log(state);
-  //   return state.book.currentBook;
-  // });
+  const dispatch = useDispatch<any>();
+  const params = useParams<string>();
+  const isbn13 = params.isbn13;
+  console.log(isbn13);
+  const book = useSelector<IRootState, IBook | null>(
+    (state) => state.book.currentBook
+  );
 
-  const book: IBook = {
+  useEffect(() => {
+    dispatch(getBookThunk(isbn13));
+  }, []);
+
+  console.log(book);
+
+  const book1: IBook = {
     image: 'https://itbook.store/img/books/9781642002140.png',
     isbn13: '9781642002140',
     price: '$23.02',
@@ -63,9 +74,7 @@ export const BookPage = () => {
           <AdditionalList book={book} />
         </div>
       </div>
-      <div className="book-page__description">
-        {book.desc}
-      </div>
+      <div className="book-page__description">{book.desc}</div>
     </div>
   );
 };
