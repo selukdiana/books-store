@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { MouseEvent, useEffect, useRef, useState } from 'react';
 
 import { MdOutlineFavorite } from 'react-icons/md';
 import { useSelector } from 'react-redux';
@@ -13,9 +13,37 @@ export const FavoriteBlock = () => {
     (state) => state.favorite.books
   );
   const [isFavoriteMenuVisible, setIsFavoriteMenuVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const checkIfClickedOutside = (e: Event | undefined): any => {
+      // debugger;
+      console.log(ref.current);
+      const favMenu = document.querySelector('.favorite-menu');
+      console.log(favMenu);
+      if (
+        isFavoriteMenuVisible &&
+        ref.current &&
+        !favMenu?.contains(
+          (e?.target as HTMLElement) || (e?.target as SVGElement)
+        ) &&
+        !ref.current.contains(
+          (e?.target as SVGElement) || (e?.target as HTMLElement)
+        )
+      ) {
+        // console.log('njfv ' + typeof (e?.target as HTMLElement).className);
+          setIsFavoriteMenuVisible(false);
+      }
+    };
+
+    document.addEventListener('click', checkIfClickedOutside);
+
+    return () => {
+      document.removeEventListener('click', checkIfClickedOutside);
+    };
+  }, [isFavoriteMenuVisible]);
 
   return (
-    <div className="favorite-block">
+    <div className="favorite-block" ref={ref}>
       <ItemsInFavorite quantity={items.length} />
       <MdOutlineFavorite
         color="white"

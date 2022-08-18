@@ -1,0 +1,54 @@
+.form {
+  width: 400px;
+  margin-top: 2rem;
+}
+input {
+  border: 0;
+  font: inherit;
+  color: #7e8ba3;
+}
+
+input::placeholder {
+  color: #7e8ba3;
+}
+.form__field {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+input {
+  outline: 0;
+  padding: 0.5rem 1rem;
+}
+
+input[type='email'],
+input[type='password'] {
+  width: 100%;
+  background-color: transparent;
+  border-bottom: 1px solid #7e8ba3;
+}
+
+input[type='submit'] {
+  background-image: linear-gradient(
+    160deg,
+    rgb(193, 254, 224) 0%,
+    rgb(85, 88, 237) 100%
+  );
+  color: #fff;
+  margin-top: 1rem;
+  margin-bottom: 6rem;
+  width: 100%;
+  cursor: pointer;
+}
+
+input:disabled[type='submit']{
+  background-color: grey;
+  background-image: none;
+}
+
+.error-field {
+  color: red;
+  position: absolute;
+  left: 1rem;
+  bottom: -1.5rem;
+}

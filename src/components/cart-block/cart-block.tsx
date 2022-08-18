@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useRef, useEffect } from 'react';
 import './cart-block.css';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { useSelector } from 'react-redux';
@@ -25,8 +25,27 @@ export const CartBlock = () => {
     navigate('/order');
   }, [navigate]);
 
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const checkIfClickedOutside = (e: Event | undefined): any => {
+      if (
+        isCartMenuVisible &&
+        ref.current &&
+        !ref.current.contains(e?.target as HTMLElement)
+      ) {
+        setIsCartMenuVisible(false);
+      }
+    };
+
+    document.addEventListener('click', checkIfClickedOutside);
+
+    return () => {
+      document.removeEventListener('click', checkIfClickedOutside);
+    };
+  }, [isCartMenuVisible]);
+
   return (
-    <div className="cart-block">
+    <div className="cart-block" ref={ref}>
       <ItemsInCart quantity={items.length} />
       <AiOutlineShoppingCart
         color="white"

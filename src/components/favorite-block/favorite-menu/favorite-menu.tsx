@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearFavorite } from '../../../store/actions';
 import { IRootState } from '../../../store/types';
@@ -11,10 +11,10 @@ import './favorite-menu.css';
 export const FavoriteMenu = () => {
   const items = useSelector((state: IRootState) => state.favorite.books);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const handleClick = () => {
-    dispatch(clearFavorite())
-  }
+    dispatch(clearFavorite());
+  };
 
   return (
     <div className="favorite-menu">
@@ -29,12 +29,12 @@ export const FavoriteMenu = () => {
                 book={book}
               />
             ))
-          : 'Нет избранных товаров'}
+          : 'You have no Saved Items'}
       </div>
       {items.length > 0 ? (
         <div className="favorite-menu__arrange">
           <Button type="secondary" size="m" onClick={handleClick}>
-            Очистить
+            Clear
           </Button>
         </div>
       ) : null}

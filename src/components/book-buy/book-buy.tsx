@@ -27,7 +27,7 @@ export const BookBuy = (book: IBookProps) => {
         type={isItemInCart ? 'secondary' : 'primary'}
         onClick={handleClick}
       >
-        {isItemInCart ? 'Убрать из корзины' : 'В Корзину'}
+        {isItemInCart ? 'Remove from Cart' : 'Add to Cart'}
       </Button>
     </div>
   );

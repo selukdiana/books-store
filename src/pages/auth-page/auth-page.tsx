@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Tabs } from '../../ui-kit/tabs';
 import './auth-page.css';
 import { ITab } from '../../ui-kit/tabs';
+import { SignInForm } from '../../components/sign-in-form';
 
 export const AuthPage= () => {
   const tabs: ITab[] = [
@@ -20,12 +21,7 @@ export const AuthPage= () => {
       <Tabs selectedId={selectedTabId} tabs={tabs} onClick={handleTabClick} />
       <div className="auth-page__content">
         {selectedTabId === tabs[0].id && (
-          <div>
-            Sed ut perspiciatis unde omnis iste natus error sit voltage
-            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-            quae ab illo inventore veritatis et quasi architecto beatae vitae
-            dicta sunt explicabo
-          </div>
+          <SignInForm/>
         )}
         {selectedTabId === tabs[1].id && (
           <div>

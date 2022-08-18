@@ -13,10 +13,10 @@ import './cart-menu.css';
 export const CartMenu = ({ onClick }: ICartMenuProps) => {
   const items = useSelector((state: IRootState) => state.cart.books);
 
-  const dispatch = useDispatch()
-  const handleClick = ()=>{
-    dispatch(clearCart())
-  }
+  const dispatch = useDispatch();
+  const handleClick = () => {
+    dispatch(clearCart());
+  };
   return (
     <div className="cart-menu">
       <div className="cart-menu__books-list">
@@ -30,23 +30,23 @@ export const CartMenu = ({ onClick }: ICartMenuProps) => {
                 book={book}
               />
             ))
-          : 'Корзина пуста'}
+          : 'Your cart is empty'}
       </div>
       {items.length > 0 ? (
         <div className="cart-menu__arrange">
           <div className="cart-menu__total-price">
-            <span>Итого:</span>
+            <span>Total to pay:</span>
             <span>{`\$${calcTotalPrice(items)}`}</span>
           </div>
           <div className="cart-menu__btns">
             <Button type="primary" size="m" onClick={onClick}>
-            Оформить заказ
+              Checkout
             </Button>
             <Button type="secondary" size="m" onClick={handleClick}>
-              Очистить
+              Clear
             </Button>
           </div>
-          
+          //place order
         </div>
       ) : null}
     </div>
