@@ -1,6 +1,10 @@
-.home-page {
+.books-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   row-gap: 30px;
+}
+
+h2{
+  margin-bottom:20px
 }

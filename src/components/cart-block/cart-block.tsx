@@ -33,7 +33,7 @@ export const CartBlock = () => {
         ref.current &&
         !ref.current.contains(e?.target as HTMLElement)
       ) {
-        setIsCartMenuVisible(false);
+        // setIsCartMenuVisible(false);
       }
     };
 

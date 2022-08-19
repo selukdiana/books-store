@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { clearCart } from '../../../store/actions';
 import { IRootState } from '../../../store/types';
 import { ICartMenuProps } from '../../../types/props';
@@ -12,10 +13,13 @@ import './cart-menu.css';
 
 export const CartMenu = ({ onClick }: ICartMenuProps) => {
   const items = useSelector((state: IRootState) => state.cart.books);
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleClick = () => {
     dispatch(clearCart());
+  };
+  const handleClickOrder = () => {
+    navigate('/order');
   };
   return (
     <div className="cart-menu">
@@ -39,14 +43,13 @@ export const CartMenu = ({ onClick }: ICartMenuProps) => {
             <span>{`\$${calcTotalPrice(items)}`}</span>
           </div>
           <div className="cart-menu__btns">
-            <Button type="primary" size="m" onClick={onClick}>
+            <Button type="primary" size="m" onClick={handleClickOrder}>
               Checkout
             </Button>
             <Button type="secondary" size="m" onClick={handleClick}>
               Clear
             </Button>
           </div>
-          //place order
         </div>
       ) : null}
     </div>

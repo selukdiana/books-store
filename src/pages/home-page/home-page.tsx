@@ -27,9 +27,12 @@ export const HomePage = () => {
   }, []);
   return books ? (
     <div className="home-page">
-      {books.map((book: IBook) => (
-        <BookItem book={book} key={book.isbn13} />
-      ))}
+      <h2>New Releases Books</h2>
+      <div className="books-list">
+        {books.map((book: IBook) => (
+          <BookItem book={book} key={book.isbn13} />
+        ))}
+      </div>
     </div>
   ) : (
     <BookItem

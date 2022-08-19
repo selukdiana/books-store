@@ -18,3 +18,10 @@
   font-weight: 700;
   color:#c2d4f6
 }
+
+.books-list{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 30px;
+}

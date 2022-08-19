@@ -17,6 +17,7 @@ export const FavoriteBlock = () => {
   useEffect(() => {
     const checkIfClickedOutside = (e: Event | undefined): any => {
       // debugger;
+      // e?.stopPropagation();
       console.log(ref.current);
       const favMenu = document.querySelector('.favorite-menu');
       console.log(favMenu);
@@ -30,8 +31,7 @@ export const FavoriteBlock = () => {
           (e?.target as SVGElement) || (e?.target as HTMLElement)
         )
       ) {
-        // console.log('njfv ' + typeof (e?.target as HTMLElement).className);
-          setIsFavoriteMenuVisible(false);
+          // setIsFavoriteMenuVisible(false);
       }
     };
 
