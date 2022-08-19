@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import './sign-in-form.css';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
@@ -7,7 +7,12 @@ interface IFormInput {
   password: string;
 }
 
-export const SignInForm = () => {
+export interface ISignInFormProps {
+  active: boolean;
+  setActive: Dispatch<SetStateAction<boolean>>;
+}
+
+export const SignInForm = ({ active, setActive }: ISignInFormProps) => {
   const {
     register,
     formState: { errors, isValid },
@@ -77,7 +82,14 @@ export const SignInForm = () => {
         }`}</span>
       </div>
       <div className="form__field">
-        <input type="submit" value="Sign In" disabled={!isValid} />
+        <input
+          type="submit"
+          value="Sign In"
+          disabled={!isValid}
+          onClick={() => {
+            setActive(true);
+          }}
+        />
       </div>
     </form>
   );
