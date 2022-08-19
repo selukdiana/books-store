@@ -1,0 +1,20 @@
+.pages {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+  margin:auto
+}
+
+.page {
+  border: 1px solid #7e8ba3;
+  border-radius: 100%;
+  color: #7e8ba3;
+  padding: 5px 12px;
+  cursor: pointer;
+}
+
+.current-page {
+  border: 2px solid #c2d4f6;
+  font-weight: 700;
+  color:#c2d4f6
+}

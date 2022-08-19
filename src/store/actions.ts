@@ -5,6 +5,10 @@ export const pushBooks = (booksArray: Array<IBook> | []) => {
   return { type: 'PUSH_BOOKS', booksArray };
 };
 
+export const pushSearchBooks = (booksArray: Array<IBook> | [], total:string, page:string) => {
+  return { type: 'PUSH_SEARCH_BOOKS', booksArray, total, page };
+};
+
 export const setItemInCart = (book: IBook) => {
   return { type: 'SET_ITEM_IN_CART', book };
 };
@@ -26,8 +30,8 @@ export const setCurrentBook = (book: IBook) => {
 };
 
 export const clearFavorite = () => {
-  return { type: 'CLEAR_FAVORITE'}
-}
+  return { type: 'CLEAR_FAVORITE' };
+};
 
 export const clearCart = () => {
   return { type: 'CLEAR_CART' };

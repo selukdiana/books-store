@@ -11,11 +11,18 @@ export interface ICartState {
 
 export type IFavoriteState = ICartState;
 
+export interface ISearchState {
+  books: Array<IBook> | [];
+  total: string;
+  page: string;
+}
+
 export interface IRootState {
   cart: ICartState;
   newReleases: IState;
   favorite: IFavoriteState;
   book: IBookState;
+  search: ISearchState;
 }
 
 export interface IBookState {

@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { IState, IRootState } from '../../store/types';
 import { IBook } from '../../types';
 import { CartMenu } from './cart-menu';
-import { calcTotalPrice } from '../../utils';
+import { calcTotalPrice } from '../../utils/calcTotalPrice';
 import { ItemsInCart } from './items-in-cart';
 import { useNavigate } from 'react-router-dom';
 

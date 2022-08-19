@@ -7,6 +7,7 @@ import { Header } from './components/header';
 import { store } from './store';
 import { BookPage } from './pages/book-page';
 import { AuthPage } from './pages/auth-page';
+import { SearchPage } from './pages/search-page';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/app/:isbn13" element={<BookPage />} />
             <Route path="/auth" element={<AuthPage />} />
+            <Route path="/:query/:page" element={<SearchPage />} />
           </Routes>
         </div>
       </Router>

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { clearFavorite } from '../../../store/actions';
 import { IRootState } from '../../../store/types';
 
-import { calcTotalPrice } from '../../../utils';
+import { calcTotalPrice } from '../../../utils/calcTotalPrice';
 import { Button } from '../../button';
 import { FavoriteItem } from './favorite-item';
 import './favorite-menu.css';

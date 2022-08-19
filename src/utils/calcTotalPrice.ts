@@ -1,4 +1,4 @@
-import { IBook } from './types';
+import { IBook } from '../types';
 
 export const calcTotalPrice = (items: Array<IBook>) => {
   const prices = items.map((book) => parseFloat(book.price.substring(1)));

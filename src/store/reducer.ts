@@ -1,4 +1,4 @@
-import { IState, ICartState, IFavoriteState, IBookState } from './types';
+import { IState, ICartState, IFavoriteState, IBookState, ISearchState } from './types';
 import { AnyAction, combineReducers } from 'redux';
 import { IBook } from '../types';
 
@@ -111,9 +111,25 @@ export const bookReducer = (
   }
 };
 
+const initialStateSeacrhBooks = {
+  books: [],
+  total: '0',
+  page: '1'
+}
+
+export const searchReducer = (state = initialStateSeacrhBooks, action: AnyAction): ISearchState => {
+  switch (action.type) {
+    case 'PUSH_SEARCH_BOOKS':
+      return Object.assign({ ...state }, { books: action.booksArray, total:action.total, page: action.page });
+    default:
+      return state;
+  }
+};
+
 export const rootReducer = combineReducers({
   book: bookReducer,
   newReleases: newReleasesBooksReducer,
   cart: cartReducer,
   favorite: favoriteReducer,
+  search: searchReducer
 });

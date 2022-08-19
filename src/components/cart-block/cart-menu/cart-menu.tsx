@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { clearCart } from '../../../store/actions';
 import { IRootState } from '../../../store/types';
 import { ICartMenuProps } from '../../../types/props';
-import { calcTotalPrice } from '../../../utils';
+import { calcTotalPrice } from '../../../utils/calcTotalPrice';
 import { Button } from '../../button';
 import { CartItem } from './cart-item';
 // import { CartItem } from '../cart-item';
