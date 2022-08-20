@@ -1,8 +1,9 @@
 .pages {
+  margin:auto;
   display: flex;
-  justify-content: space-between;
-  width: 20%;
-  margin:auto
+  justify-content: center;
+  margin-top: 30px;
+
 }
 
 .page {
@@ -11,6 +12,10 @@
   color: #7e8ba3;
   padding: 5px 12px;
   cursor: pointer;
+}
+
+.page:not(:last-child){
+  margin-right: 10px;
 }
 
 .current-page {
