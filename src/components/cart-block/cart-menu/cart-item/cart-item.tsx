@@ -16,7 +16,7 @@ export const CartItem = ({ title, price, book }: ICartItemProps) => {
     <div className="cart-item">
       <span className="cart-item__title">{title} </span>
       <div className="cart-item__price">
-        <span>{price} руб.</span>
+        <span>{price}</span>
         <AiOutlineCloseCircle
           size={15}
           className="cart-item__delete-icon"

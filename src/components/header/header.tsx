@@ -20,7 +20,7 @@ export const Header = () => {
     <div className="header">
       <div className="wrapper">
         <Link to="/" className="header__store-title">
-          Book's Store
+          Bookstore
         </Link>
       </div>
       <div className="wrapper header__cart-btn-wrapper">

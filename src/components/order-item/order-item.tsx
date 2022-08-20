@@ -24,7 +24,7 @@ export const OrderItem = ({ book }: IOrderItemProps) => {
         <span> {book.title} </span>
       </div>
       <div className="order-item__price">
-        <span>{book.price} руб.</span>
+        <span>{book.price}</span>
         <AiOutlineCloseCircle
           size={25}
           className="cart-item__delete-icon"

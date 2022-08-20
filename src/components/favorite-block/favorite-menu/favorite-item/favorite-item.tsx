@@ -19,7 +19,7 @@ export const FavoriteItem = ({ title, price, book }: IFavoriteItemProps) => {
     <div className="favorite-item">
       <span className="favorite-item__title">{title} </span>
       <div className="favorite-item__price">
-        <span>{price} руб.</span>
+        <span>{price}</span>
         <AiOutlineCloseCircle
           size={15}
           className="favorite-item__delete-icon"
