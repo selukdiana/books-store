@@ -10,17 +10,10 @@ import { getNewReleasesBooksThunk } from '../../store/thunks/getNewReleasesBooks
 export const HomePage = () => {
   const dispatch = useDispatch<any>();
 
-  const books = useSelector<IRootState, Array<IBook>>(
-    (state) => state.newReleases.books
-  );
-
-  const isFetching = useSelector<IRootState, boolean>(
-    (state) => state.newReleases.isFetching
-  );
-
-  const isError = useSelector<IRootState, boolean>(
-    (state) => state.newReleases.isError
-  );
+  const { books, isFetching, isError } = useSelector<
+    IRootState,
+    INewReleasesBooksState
+  >((state) => state.newReleases);
 
   useEffect(() => {
     dispatch(getNewReleasesBooksThunk());

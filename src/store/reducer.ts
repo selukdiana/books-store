@@ -135,10 +135,12 @@ export const bookReducer = (
   }
 };
 
-const initialStateSeacrhBooks = {
+const initialStateSeacrhBooks: ISearchState = {
   books: [],
   total: '0',
   page: '1',
+  isFetching: false,
+  isError: false,
 };
 
 export const searchReducer = (
@@ -146,11 +148,21 @@ export const searchReducer = (
   action: AnyAction
 ): ISearchState => {
   switch (action.type) {
-    case 'PUSH_SEARCH_BOOKS':
+    case 'RECIEVE_DATA_SEARCH_BOOKS':
       return Object.assign(
         { ...state },
-        { books: action.booksArray, total: action.total, page: action.page }
+        {
+          books: action.booksArray,
+          total: action.total,
+          page: action.page,
+          isFetching: false,
+          isError: false,
+        }
       );
+    case 'RECIEVE_ERROR_SEARCH_BOOKS':
+      return Object.assign({ ...state }, { isFetching: false, isError: true });
+    case 'REQUEST_DATA_SEARCH_BOOKS':
+      return Object.assign({ ...state }, { isFetching: true, isError: false });
     default:
       return state;
   }

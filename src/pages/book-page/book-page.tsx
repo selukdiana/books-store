@@ -9,7 +9,7 @@ import { BookFavorite } from '../../components/book-favorite';
 import { BookGenre } from '../../components/book-genre';
 import { Rating } from '../../components/rating';
 import { getBookThunk } from '../../store/thunks/getBookThunk';
-import { IRootState } from '../../store/types';
+import { IBookState, IRootState } from '../../store/types';
 import { IBook } from '../../types';
 import './book-page.css';
 
@@ -17,15 +17,10 @@ export const BookPage = () => {
   const dispatch = useDispatch<any>();
   const params = useParams<string>();
   const isbn13 = params.isbn13;
-  const book = useSelector<IRootState, IBook | null>(
-    (state) => state.book.currentBook
-  );
-  const isFetching = useSelector<IRootState, boolean>(
-    (state) => state.book.isFetching
-  );
-  const isError = useSelector<IRootState, boolean>(
-    (state) => state.book.isError
-  );
+  const { currentBook, isFetching, isError } = useSelector<
+    IRootState,
+    IBookState
+  >((state) => state.book);
 
   useEffect(() => {
     dispatch(getBookThunk(isbn13));
@@ -33,24 +28,27 @@ export const BookPage = () => {
 
   return !isFetching ? (
     !isError ? (
-      book ? (
+      currentBook ? (
         <div className="book-page">
-          <h1 className="book-page__title">{book.title}</h1>
+          <h1 className="book-page__title">{currentBook.title}</h1>
           <div className="book-page__content">
             <div className="book-page__left">
-              <BookCover image={book.image} />
-              <BookGenre genre={book.subtitle} key={book.subtitle} />
-              <Rating rating={book.rating} />
+              <BookCover image={currentBook.image} />
+              <BookGenre
+                genre={currentBook.subtitle}
+                key={currentBook.subtitle}
+              />
+              <Rating rating={currentBook.rating} />
               <div className="book-page__buy-book">
-                <BookFavorite book={book} />
-                <BookBuy book={book} />
+                <BookFavorite book={currentBook} />
+                <BookBuy book={currentBook} />
               </div>
             </div>
             <div className="book-page__right">
-              <AdditionalList book={book} />
+              <AdditionalList book={currentBook} />
             </div>
           </div>
-          <BookDescription description={book.desc} />
+          <BookDescription description={currentBook.desc} />
         </div>
       ) : null
     ) : (

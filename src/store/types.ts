@@ -17,6 +17,8 @@ export interface ISearchState {
   books: Array<IBook> | [];
   total: string;
   page: string;
+  isFetching: boolean;
+  isError: boolean
 }
 
 export interface IRootState {

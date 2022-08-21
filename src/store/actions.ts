@@ -13,12 +13,18 @@ export const recieveErrorNewReleasesBooks = () => {
   return { type: 'RECIEVE_ERROR_NEW_RELEASES_BOOKS' };
 };
 
-export const pushSearchBooks = (
+export const recieveDataSearchBooks = (
   booksArray: Array<IBook> | [],
   total: string,
   page: string
 ) => {
-  return { type: 'PUSH_SEARCH_BOOKS', booksArray, total, page };
+  return { type: 'RECIEVE_DATA_SEARCH_BOOKS', booksArray, total, page };
+};
+export const recieveErrorSearchBooks = () => {
+  return { type: 'RECIEVE_ERROR_SEARCH_BOOKS' };
+};
+export const requestDataSearchBooks = () => {
+  return { type: 'REQUEST_DATA_SEARCH_BOOKS' };
 };
 
 export const setItemInCart = (book: IBook) => {
@@ -41,10 +47,10 @@ export const recieveDataBook = (book: IBook) => {
   return { type: 'RECIEVE_DATA_BOOK', book };
 };
 export const recieveErrorBook = () => {
-  return { type: 'RECIEVE_ERROR_BOOK'};
+  return { type: 'RECIEVE_ERROR_BOOK' };
 };
 export const requestDataBook = () => {
-  return { type: 'REQUEST_DATA_BOOK'};
+  return { type: 'REQUEST_DATA_BOOK' };
 };
 
 export const clearFavorite = () => {
