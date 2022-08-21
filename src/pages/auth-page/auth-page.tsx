@@ -34,7 +34,7 @@ export const AuthPage = () => {
       </div>
 
       <Modal active={modalActive} setActive={setModalActive}>
-        <AiOutlineCheckCircle size={'100px'} color={'rgb(85, 88, 237)'} />
+        <AiOutlineCheckCircle size={'10rem'} color={'rgb(85, 88, 237)'} />
       </Modal>
     </section>
   );

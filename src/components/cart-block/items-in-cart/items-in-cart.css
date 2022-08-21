@@ -1,15 +1,15 @@
 .items-in-cart {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 2rem;
+  height: 2rem;
   background-color: tomato;
-  border-radius: 15px;
-  font-size: 15px;
+  border-radius: 1.5rem;
+  font-size: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   z-index: 2;
-  left: 15px;
-  top: -5px;
+  left: 1.5rem;
+  top: -0.5rem;
 }

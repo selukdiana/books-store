@@ -1,9 +1,9 @@
 .book-cover {
-  height: 170px;
+  height: 17rem;
   width: 100%;
   background-size: contain;
   background-position: center;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
   background-repeat: no-repeat;
 }

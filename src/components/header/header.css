@@ -1,21 +1,21 @@
 .header {
-    height: 80px;
+    height: 8rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 30px;
+    margin-bottom: 3rem;
 }
 
 .wrapper {
     display: flex;
     flex-grow: 1;
-    gap: 20px;
+    gap: 2rem;
 }
 
 .header__store-title {
     color: white;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 2.4rem;
     font-weight: bold;
 }
 
