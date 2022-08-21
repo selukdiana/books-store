@@ -8,7 +8,7 @@ import {
 import { AnyAction, combineReducers } from 'redux';
 import { IBook } from '../types';
 
-const initialState: INewReleasesBooksState = {
+const initialStateNewReleasesBooks: INewReleasesBooksState = {
   books: [],
   isFetching: false,
   isError: false,
@@ -18,7 +18,7 @@ const initialState: INewReleasesBooksState = {
 //{type:'PUSH_BOOKS', booksArray:[]}
 
 export const newReleasesBooksReducer = (
-  state = initialState,
+  state = initialStateNewReleasesBooks,
   action: AnyAction
 ): INewReleasesBooksState => {
   switch (action.type) {
@@ -112,6 +112,8 @@ export const favoriteReducer = (
 
 const initialStateBook: IBookState = {
   currentBook: null,
+  isError: false,
+  isFetching: false,
 };
 
 export const bookReducer = (
@@ -119,8 +121,15 @@ export const bookReducer = (
   action: AnyAction
 ): IBookState => {
   switch (action.type) {
-    case 'SET_CURRENT_BOOK':
-      return { currentBook: action.book };
+    case 'RECIEVE_DATA_BOOK':
+      return Object.assign(
+        { ...state },
+        { currentBook: action.book, isFetching: false }
+      );
+    case 'REQUEST_DATA_BOOK':
+      return Object.assign({ ...state }, { isFetching: true });
+    case 'RECIEVE_ERROR_BOOK':
+      return Object.assign({ ...state }, { isError: true, isFetching: false });
     default:
       return state;
   }

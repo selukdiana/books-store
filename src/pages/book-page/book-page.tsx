@@ -17,36 +17,46 @@ export const BookPage = () => {
   const dispatch = useDispatch<any>();
   const params = useParams<string>();
   const isbn13 = params.isbn13;
-  console.log(isbn13);
   const book = useSelector<IRootState, IBook | null>(
     (state) => state.book.currentBook
+  );
+  const isFetching = useSelector<IRootState, boolean>(
+    (state) => state.book.isFetching
+  );
+  const isError = useSelector<IRootState, boolean>(
+    (state) => state.book.isError
   );
 
   useEffect(() => {
     dispatch(getBookThunk(isbn13));
   }, []);
 
-  console.log(book);
-
-
-  return !book ? null : (
-    <div className="book-page">
-      <h1 className="book-page__title">{book.title}</h1>
-      <div className="book-page__content">
-        <div className="book-page__left">
-          <BookCover image={book.image} />
-          <BookGenre genre={book.subtitle} key={book.subtitle} />
-          <Rating rating={book.rating} />
-          <div className="book-page__buy-book">
-            <BookFavorite book={book} />
-            <BookBuy book={book} />
+  return !isFetching ? (
+    !isError ? (
+      book ? (
+        <div className="book-page">
+          <h1 className="book-page__title">{book.title}</h1>
+          <div className="book-page__content">
+            <div className="book-page__left">
+              <BookCover image={book.image} />
+              <BookGenre genre={book.subtitle} key={book.subtitle} />
+              <Rating rating={book.rating} />
+              <div className="book-page__buy-book">
+                <BookFavorite book={book} />
+                <BookBuy book={book} />
+              </div>
+            </div>
+            <div className="book-page__right">
+              <AdditionalList book={book} />
+            </div>
           </div>
+          <BookDescription description={book.desc} />
         </div>
-        <div className="book-page__right">
-          <AdditionalList book={book} />
-        </div>
-      </div>
-      <BookDescription description={ book.desc} />
-    </div>
+      ) : null
+    ) : (
+      <>Request Error</>
+    )
+  ) : (
+    <>Loading...</>
   );
 };

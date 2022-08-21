@@ -37,8 +37,14 @@ export const getItemFromFavorite = (book: IBook) => {
   return { type: 'GET_ITEM_FROM_FAVORITE', book };
 };
 
-export const setCurrentBook = (book: IBook) => {
-  return { type: 'SET_CURRENT_BOOK', book };
+export const recieveDataBook = (book: IBook) => {
+  return { type: 'RECIEVE_DATA_BOOK', book };
+};
+export const recieveErrorBook = () => {
+  return { type: 'RECIEVE_ERROR_BOOK'};
+};
+export const requestDataBook = () => {
+  return { type: 'REQUEST_DATA_BOOK'};
 };
 
 export const clearFavorite = () => {

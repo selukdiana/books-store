@@ -29,4 +29,6 @@ export interface IRootState {
 
 export interface IBookState {
   currentBook: IBook | null;
+  isFetching: boolean;
+  isError:boolean
 }

@@ -6,7 +6,7 @@ import { BookBuy } from '../book-buy';
 import { BookCover } from '../book-cover';
 import { useDispatch, useSelector } from 'react-redux';
 import { BookFavorite } from '../book-favorite';
-import { setCurrentBook } from '../../store/actions';
+import { recieveDataBook } from '../../store/actions';
 import { IRootState } from '../../store/types';
 import { useNavigate } from 'react-router-dom';
 
