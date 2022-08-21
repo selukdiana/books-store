@@ -1,9 +1,17 @@
-import { IState, ICartState, IFavoriteState, IBookState, ISearchState } from './types';
+import {
+  INewReleasesBooksState,
+  ICartState,
+  IFavoriteState,
+  IBookState,
+  ISearchState,
+} from './types';
 import { AnyAction, combineReducers } from 'redux';
 import { IBook } from '../types';
 
-const initialState: IState = {
+const initialState: INewReleasesBooksState = {
   books: [],
+  isFetching: false,
+  isError: false,
 };
 
 //actions
@@ -12,10 +20,17 @@ const initialState: IState = {
 export const newReleasesBooksReducer = (
   state = initialState,
   action: AnyAction
-): IState => {
+): INewReleasesBooksState => {
   switch (action.type) {
-    case 'PUSH_BOOKS':
-      return Object.assign({ ...state }, { books: action.booksArray });
+    case 'RECIEVE_DATA_NEW_RELEASES_BOOKS':
+      return Object.assign(
+        { ...state },
+        { books: action.booksArray, isFetching: false }
+      );
+    case 'REQUEST_DATA_NEW_RELEASES_BOOKS':
+      return Object.assign({ ...state }, { isFetching: true });
+    case 'RECIEVE_ERROR_NEW_RELEASES_BOOKS':
+      return Object.assign({ ...state }, { isError: true, isFetching: false });
     default:
       return state;
   }
@@ -114,13 +129,19 @@ export const bookReducer = (
 const initialStateSeacrhBooks = {
   books: [],
   total: '0',
-  page: '1'
-}
+  page: '1',
+};
 
-export const searchReducer = (state = initialStateSeacrhBooks, action: AnyAction): ISearchState => {
+export const searchReducer = (
+  state = initialStateSeacrhBooks,
+  action: AnyAction
+): ISearchState => {
   switch (action.type) {
     case 'PUSH_SEARCH_BOOKS':
-      return Object.assign({ ...state }, { books: action.booksArray, total:action.total, page: action.page });
+      return Object.assign(
+        { ...state },
+        { books: action.booksArray, total: action.total, page: action.page }
+      );
     default:
       return state;
   }
@@ -131,5 +152,5 @@ export const rootReducer = combineReducers({
   newReleases: newReleasesBooksReducer,
   cart: cartReducer,
   favorite: favoriteReducer,
-  search: searchReducer
+  search: searchReducer,
 });

@@ -1,7 +1,10 @@
 import { ThunkAction, ThunkDispatch } from 'redux-thunk';
-import { pushBooks, setCurrentBook } from '../../store/actions';
+import {
+  recieveDataNewReleasesBooks,
+  setCurrentBook,
+} from '../../store/actions';
 import { AnyAction } from 'redux';
-import { IState } from '../types';
+import { INewReleasesBooksState } from '../types';
 import { IBook } from '../../types';
 
 export const getBookThunk =

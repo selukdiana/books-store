@@ -1,11 +1,23 @@
 import exp from 'constants';
 import { IBook } from '../types';
 
-export const pushBooks = (booksArray: Array<IBook> | []) => {
-  return { type: 'PUSH_BOOKS', booksArray };
+export const recieveDataNewReleasesBooks = (booksArray: Array<IBook> | []) => {
+  return { type: 'RECIEVE_DATA_NEW_RELEASES_BOOKS', booksArray };
 };
 
-export const pushSearchBooks = (booksArray: Array<IBook> | [], total:string, page:string) => {
+export const requestDataNewReleasesBooks = () => {
+  return { type: 'REQUEST_DATA_NEW_RELEASES_BOOKS' };
+};
+
+export const recieveErrorNewReleasesBooks = () => {
+  return { type: 'RECIEVE_ERROR_NEW_RELEASES_BOOKS' };
+};
+
+export const pushSearchBooks = (
+  booksArray: Array<IBook> | [],
+  total: string,
+  page: string
+) => {
   return { type: 'PUSH_SEARCH_BOOKS', booksArray, total, page };
 };
 

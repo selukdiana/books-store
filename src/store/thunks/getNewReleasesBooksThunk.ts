@@ -1,16 +1,22 @@
 import { ThunkAction, ThunkDispatch } from 'redux-thunk';
-import { pushBooks } from '../../store/actions';
+import {
+  recieveDataNewReleasesBooks,
+  recieveErrorNewReleasesBooks,
+  requestDataNewReleasesBooks,
+} from '../../store/actions';
 import { AnyAction } from 'redux';
-import { IState } from '../types';
+import { INewReleasesBooksState } from '../types';
 
 export const getNewReleasesBooksThunk =
-  (): ThunkAction<Promise<void>, IState, unknown, AnyAction> =>
+  (): ThunkAction<Promise<void>, INewReleasesBooksState, unknown, AnyAction> =>
   async (dispatch: ThunkDispatch<unknown, unknown, AnyAction>) => {
+    dispatch(requestDataNewReleasesBooks());
     fetch('https://api.itbook.store/1.0/new')
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        dispatch(pushBooks(data.books));
+        dispatch(recieveDataNewReleasesBooks(data.books));
+      })
+      .catch((error) => {
+        dispatch(recieveErrorNewReleasesBooks())
       });
-    //catch Action error
   };

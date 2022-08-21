@@ -1,7 +1,9 @@
 import { IBook } from '../types';
 
-export interface IState {
+export interface INewReleasesBooksState {
   books: Array<IBook> | [];
+  isFetching: boolean;
+  isError: boolean;
 }
 
 export interface ICartState {
@@ -19,7 +21,7 @@ export interface ISearchState {
 
 export interface IRootState {
   cart: ICartState;
-  newReleases: IState;
+  newReleases: INewReleasesBooksState;
   favorite: IFavoriteState;
   book: IBookState;
   search: ISearchState;

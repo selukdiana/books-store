@@ -2,7 +2,7 @@ import React, { useState, useCallback, useRef, useEffect } from 'react';
 import './cart-block.css';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { useSelector } from 'react-redux';
-import { IState, IRootState } from '../../store/types';
+import { INewReleasesBooksState, IRootState } from '../../store/types';
 import { IBook } from '../../types';
 import { CartMenu } from './cart-menu';
 import { calcTotalPrice } from '../../utils/calcTotalPrice';
