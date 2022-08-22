@@ -7,5 +7,5 @@ export const calcTotalPrice = (items: Array<IBook>) => {
     return prev + cur;
   }, 0);
 
-  return totalPrice;
+  return Number(totalPrice.toFixed(2));
 };
