@@ -6,6 +6,7 @@ import { recieveDataNewReleasesBooks } from '../../store/actions';
 import { IRootState, INewReleasesBooksState } from '../../store/types';
 import { IBook } from '../../types';
 import { getNewReleasesBooksThunk } from '../../store/thunks/getNewReleasesBooksThunk';
+import { Subscribe } from '../../components/Subscribe';
 
 export const HomePage = () => {
   const dispatch = useDispatch<any>();
@@ -27,6 +28,7 @@ export const HomePage = () => {
             <BookItem book={book} key={book.isbn13} />
           ))}
         </div>
+        <Subscribe/>
       </div>
     ) : (
       <>Request Error</>

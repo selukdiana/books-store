@@ -3,8 +3,15 @@
     gap: 2rem
 }
 
+.book-page__title{
+    margin-bottom: 3rem;
+}
+
 .book-page__left {
     width: 40%;
+    border: 1px solid rgb(76, 76, 76);
+    border-radius: 1.5rem;
+    padding: 1rem;
 }
 
 .book-page__right {

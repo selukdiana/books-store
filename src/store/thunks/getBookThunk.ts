@@ -11,7 +11,8 @@ export const getBookThunk =
   (
     isbn13: string | undefined
   ): ThunkAction<Promise<void>, IBook, unknown, AnyAction> =>
-  async (dispatch: ThunkDispatch<unknown, unknown, AnyAction>) => {
+    async (dispatch: ThunkDispatch<unknown, unknown, AnyAction>) => {
+    console.log(isbn13)
     dispatch(requestDataBook());
     fetch(`https://api.itbook.store/1.0/books/${isbn13}`)
       .then((response) => response.json())

@@ -8,12 +8,16 @@ import { BookDescription } from '../../components/book-description';
 import { BookFavorite } from '../../components/book-favorite';
 import { BookGenre } from '../../components/book-genre';
 import { Rating } from '../../components/rating';
+import { Subscribe } from '../../components/Subscribe';
 import { getBookThunk } from '../../store/thunks/getBookThunk';
-import { IBookState, IRootState } from '../../store/types';
+import { getSearchBooksThunk } from '../../store/thunks/getSearchBooksThunk';
+import { IBookState, IRootState, ISearchState } from '../../store/types';
 import { IBook } from '../../types';
+import { Slider } from '../../ui-kit/Slider';
 import './book-page.css';
 
 export const BookPage = () => {
+  // debugger
   const dispatch = useDispatch<any>();
   const params = useParams<string>();
   const isbn13 = params.isbn13;
@@ -22,9 +26,19 @@ export const BookPage = () => {
     IBookState
   >((state) => state.book);
 
+  const books = useSelector<IRootState, Array<IBook>>(
+    (state) => state.search.books
+  );
+
+  console.log(books);
+  console.log('FFFFFFF  ', currentBook?.subtitle.replace(/ /g, '%20'));
   useEffect(() => {
     dispatch(getBookThunk(isbn13));
-  }, []);
+    dispatch(
+      getSearchBooksThunk(currentBook?.subtitle.replace(/ /g, '%20'), '1')
+    );
+  }, [params]);
+
 
   return !isFetching ? (
     !isError ? (
@@ -33,7 +47,7 @@ export const BookPage = () => {
           <h1 className="book-page__title">{currentBook.title}</h1>
           <div className="book-page__content">
             <div className="book-page__left">
-              <BookCover image={currentBook.image} />
+              <BookCover image={currentBook.image} size='25' />
               <BookGenre
                 genre={currentBook.subtitle}
                 key={currentBook.subtitle}
@@ -49,6 +63,8 @@ export const BookPage = () => {
             </div>
           </div>
           <BookDescription description={currentBook.desc} />
+          <Subscribe />
+          <Slider books={ books} />
         </div>
       ) : null
     ) : (

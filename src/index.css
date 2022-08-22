@@ -1,5 +1,5 @@
-html{
-  font-size: 10px
+html {
+  font-size: 10px;
 }
 * {
   margin: 0;
@@ -7,7 +7,7 @@ html{
   list-style: none;
   box-sizing: border-box;
   text-decoration: none;
-  transition: all 0.5s
+  transition: all 0.5s;
 }
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -15,7 +15,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-    background-color: rgb(25, 26, 28);
+  background-color: rgb(25, 26, 28);
 }
 
 code {
@@ -23,8 +23,18 @@ code {
     monospace;
 }
 
+h2 {
+  font-size: 2.4rem;
+}
+
+span,
+p,
+div {
+  font-size: 1.6rem;
+}
+
 .App {
-  max-width: 1180px;;
+  max-width: 1180px;
   margin: 0 auto;
   padding: 0 4rem;
   color: white;
@@ -37,4 +47,78 @@ a {
 
 .secondary-text {
   color: rgb(80, 82, 84);
+}
+
+svg {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+@media only screen and (max-width: 1200px) {
+  .App {
+    max-width: 960px;
+  }
+  .books-list {
+    justify-content: space-evenly;
+  }
+
+  html {
+    font-size: 9px;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .App {
+    max-width: 720px;
+  }
+
+  html {
+    font-size: 8px;
+  }
+  .books-list {
+    justify-content: space-evenly;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .App {
+    max-width: 540px;
+  }
+
+  html {
+    font-size: 7px;
+  }
+  .books-list {
+    justify-content: space-evenly;
+  }
+  .book-page__content {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .book-page__left,
+  .book-page__right {
+    width: 80% !important;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .App {
+    max-width: 340px;
+  }
+
+  html {
+    font-size: 6px;
+  }
+  .books-list {
+    justify-content: space-evenly;
+  }
+  .header__store-title {
+    display: none;
+  }
+
+  .form {
+    width: 100% !important;
+  }
+}
+@media only screen and (max-width: 320px) {
+}
+@media only screen and (max-width: px) {
 }

@@ -1,4 +1,4 @@
-.book-cover {
+/* .book-cover {
   height: 17rem;
   width: 100%;
   background-size: contain;
@@ -6,4 +6,16 @@
   border-top-left-radius: 1.5rem;
   border-top-right-radius: 1.5rem;
   background-repeat: no-repeat;
+} */
+
+.book-cover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 17rem;
+  width: 100%;
+  overflow: hidden;
+}
+.book-cover img {
+  height: 100%;
 }

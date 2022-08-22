@@ -1,8 +1,15 @@
 import React from 'react';
 import './book-cover.css';
 
-export const BookCover = ({ image = '' }) => {
+export interface IBookCoverProps {
+  image: string;
+  size?: string;
+}
+
+export const BookCover = ({ image, size }: IBookCoverProps) => {
   return (
-    <div className="book-cover" style={{ backgroundImage: `url(${image})` }} />
+    <div className="book-cover" style={{ height: `${size}rem` }}>
+      <img src={`${image}`} alt="" />
+    </div>
   );
 };
