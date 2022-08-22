@@ -7,7 +7,7 @@ import './additional-list.css';
 
 export const AdditionalList = (book: IBookProps) => {
   const bookItem = book.book;
-  const url = 'Chapter 5';
+  const urls = Object.keys(bookItem.pdf);
   return (
     <ul className="additional-list">
       <AdditionalAttribute name="Title" value={bookItem.title} />
@@ -17,7 +17,7 @@ export const AdditionalList = (book: IBookProps) => {
       <AdditionalAttribute name="Year" value={bookItem.year} />
       <div className="book-page__preview">
         {bookItem.pdf ? (
-          <a href={`${bookItem.pdf[url]}`} className="secondary-text">
+          <a href={`${bookItem.pdf[urls[0]]}`} className="secondary-text">
             Preview Book
           </a>
         ) : (

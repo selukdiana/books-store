@@ -17,7 +17,6 @@ import { Slider } from '../../ui-kit/Slider';
 import './book-page.css';
 
 export const BookPage = () => {
-  // debugger
   const dispatch = useDispatch<any>();
   const params = useParams<string>();
   const isbn13 = params.isbn13;
