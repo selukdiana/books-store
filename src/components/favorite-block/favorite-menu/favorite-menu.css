@@ -4,7 +4,7 @@
     left: -30rem;
     background-color: rgb(36, 37, 41);
     width: 40rem;
-    padding: 1rem 2rem;
+    padding: 2rem 2rem 1rem;
     z-index: 2;
     border-radius: 1.5rem;
 }
@@ -19,4 +19,15 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 1.5rem;
+}
+
+.favorite-menu__close-btn{
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    color: white;
+    border-color: white;
+    width: 1.5rem;
+    height: 1.5rem;
+
 }

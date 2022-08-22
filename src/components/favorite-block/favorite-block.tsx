@@ -13,37 +13,9 @@ export const FavoriteBlock = () => {
     (state) => state.favorite.books
   );
   const [isFavoriteMenuVisible, setIsFavoriteMenuVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const checkIfClickedOutside = (e: Event | undefined): any => {
-      // debugger;
-      // e?.stopPropagation();
-      console.log(ref.current);
-      const favMenu = document.querySelector('.favorite-menu');
-      console.log(favMenu);
-      if (
-        isFavoriteMenuVisible &&
-        ref.current &&
-        !favMenu?.contains(
-          (e?.target as HTMLElement) || (e?.target as SVGElement)
-        ) &&
-        !ref.current.contains(
-          (e?.target as SVGElement) || (e?.target as HTMLElement)
-        )
-      ) {
-          // setIsFavoriteMenuVisible(false);
-      }
-    };
-
-    document.addEventListener('click', checkIfClickedOutside);
-
-    return () => {
-      document.removeEventListener('click', checkIfClickedOutside);
-    };
-  }, [isFavoriteMenuVisible]);
 
   return (
-    <div className="favorite-block" ref={ref}>
+    <div className="favorite-block">
       <ItemsInFavorite quantity={items.length} />
       <MdOutlineFavorite
         color="white"
@@ -53,7 +25,9 @@ export const FavoriteBlock = () => {
           setIsFavoriteMenuVisible(!isFavoriteMenuVisible);
         }}
       />
-      {isFavoriteMenuVisible && <FavoriteMenu />}
+      {isFavoriteMenuVisible && (
+        <FavoriteMenu setIsFavoriteMenuVisible={setIsFavoriteMenuVisible} />
+      )}
     </div>
   );
 };

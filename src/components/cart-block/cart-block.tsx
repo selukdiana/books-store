@@ -25,27 +25,9 @@ export const CartBlock = () => {
     navigate('/order');
   }, [navigate]);
 
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const checkIfClickedOutside = (e: Event | undefined): any => {
-      if (
-        isCartMenuVisible &&
-        ref.current &&
-        !ref.current.contains(e?.target as HTMLElement)
-      ) {
-        // setIsCartMenuVisible(false);
-      }
-    };
-
-    document.addEventListener('click', checkIfClickedOutside);
-
-    return () => {
-      document.removeEventListener('click', checkIfClickedOutside);
-    };
-  }, [isCartMenuVisible]);
 
   return (
-    <div className="cart-block" ref={ref}>
+    <div className="cart-block">
       <ItemsInCart quantity={items.length} />
       <AiOutlineShoppingCart
         color="white"
@@ -61,7 +43,12 @@ export const CartBlock = () => {
         <span className="total-price">{`$00.00`}</span>
       )}
       {/* {isCartMenuVisible && <CartMenu />} */}
-      {isCartMenuVisible && <CartMenu onClick={handleGoToOrderClick} />}
+      {isCartMenuVisible && (
+        <CartMenu
+          onClick={handleGoToOrderClick}
+          setIsCartMenuVisible={setIsCartMenuVisible}
+        />
+      )}
     </div>
   );
 };

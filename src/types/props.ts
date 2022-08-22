@@ -1,4 +1,4 @@
-import { MouseEventHandler } from 'react';
+import { Dispatch, MouseEventHandler, SetStateAction } from 'react';
 import { IBook } from '.';
 
 export interface IBookProps {
@@ -7,6 +7,7 @@ export interface IBookProps {
 
 export interface ICartMenuProps {
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  setIsCartMenuVisible: Dispatch<SetStateAction<boolean>>;
 }
 
 

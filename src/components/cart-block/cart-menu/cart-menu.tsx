@@ -1,4 +1,5 @@
 import React from 'react';
+import { AiOutlineClose } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { clearCart } from '../../../store/actions';
@@ -7,11 +8,9 @@ import { ICartMenuProps } from '../../../types/props';
 import { calcTotalPrice } from '../../../utils/calcTotalPrice';
 import { Button } from '../../button';
 import { CartItem } from './cart-item';
-// import { CartItem } from '../cart-item';
-// import { calcTotalPrice } from '../utils';
 import './cart-menu.css';
 
-export const CartMenu = ({ onClick }: ICartMenuProps) => {
+export const CartMenu = ({ onClick, setIsCartMenuVisible }: ICartMenuProps) => {
   const items = useSelector((state: IRootState) => state.cart.books);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -20,6 +19,9 @@ export const CartMenu = ({ onClick }: ICartMenuProps) => {
   };
   const handleClickOrder = () => {
     navigate('/order');
+  };
+  const handleCloseBtnClick = () => {
+    setIsCartMenuVisible(false);
   };
   return (
     <div className="cart-menu">
@@ -52,6 +54,10 @@ export const CartMenu = ({ onClick }: ICartMenuProps) => {
           </div>
         </div>
       ) : null}
+      <AiOutlineClose
+        className="cart-menu__close-btn"
+        onClick={handleCloseBtnClick}
+      />
     </div>
   );
 };
