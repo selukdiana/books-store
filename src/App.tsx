@@ -9,6 +9,7 @@ import { BookPage } from './pages/BookPage';
 import { AuthPage } from './pages/AuthPage';
 import { SearchPage } from './pages/SearchPage';
 import { OrderPage } from './pages/OrderPage';
+import { Footer } from './layout/Footer';
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
             <Route path="/:query/:page" element={<SearchPage />} />
             <Route path="/order" element={<OrderPage />} />
           </Routes>
+          <Footer/>
         </div>
       </Router>
     </Provider>
