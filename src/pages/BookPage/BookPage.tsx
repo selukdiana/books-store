@@ -29,8 +29,6 @@ export const BookPage = () => {
     (state) => state.search.books
   );
 
-  console.log(books);
-  console.log('FFFFFFF  ', currentBook?.subtitle.replace(/ /g, '%20'));
   useEffect(() => {
     dispatch(getBookThunk(isbn13));
     dispatch(

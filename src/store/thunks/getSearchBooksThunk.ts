@@ -9,7 +9,6 @@ export const getSearchBooksThunk =
     page: string
   ): ThunkAction<Promise<void>, INewReleasesBooksState, unknown, AnyAction> =>
     async (dispatch: ThunkDispatch<unknown, unknown, AnyAction>) => {
-      console.log(query)
     dispatch(requestDataSearchBooks())
     fetch(`https://api.itbook.store/1.0//search/${query}/${page}`)
       .then((response) => response.json())
