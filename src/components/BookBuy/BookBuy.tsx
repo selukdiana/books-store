@@ -1,10 +1,10 @@
 import React from 'react';
-import { Button } from '../Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { getItemFromCart, setItemInCart } from '../../store/actions';
 import { IRootState } from '../../store/types';
 import './BookBuy.css';
 import { IBookProps } from '../../types/props';
+import { Button } from '../Button';
 
 export const BookBuy = (book: IBookProps) => {
   const dispatch = useDispatch();

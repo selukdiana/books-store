@@ -2,11 +2,11 @@ import React, { Dispatch, SetStateAction } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearFavorite } from '../../../store/actions';
 import { IRootState } from '../../../store/types';
-import { Button } from '../../Button';
 import { FavoriteItem } from './FavoriteItem';
 import './FavoriteMenu.css';
 import { AiOutlineClose } from 'react-icons/ai';
 import { IFavoriteMenuProps } from '../../../types/props';
+import { Button } from '../../Button';
 
 export const FavoriteMenu = ({
   setIsFavoriteMenuVisible,
