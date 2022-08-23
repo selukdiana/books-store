@@ -1,13 +1,9 @@
 import React, { Dispatch, SetStateAction } from 'react';
-import './modal.css';
-
-export interface IModalProps {
-  active: boolean;
-  setActive: Dispatch<SetStateAction<boolean>>;
-  children: any
-}
+import { IModalProps } from '../../types/props';
+import './Modal.css';
 
 export const Modal = ({ active, setActive, children }: IModalProps) => {
+
   return (
     <div
       className={active ? 'modal active' : 'modal'}

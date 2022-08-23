@@ -1,21 +1,18 @@
 import React from 'react';
-import './rating.css';
-import { StarIcon } from './star-icon';
-
-interface IRatingProps {
-  rating?: string;
-}
+import { IRatingProps } from '../../types/props';
+import './Rating.css';
+import { StarIcon } from './StarIcon';
 
 export const Rating = ({ rating }: IRatingProps) => {
   const grade = Number(rating);
-  console.log(`Rating: ${grade}`);
+
   const stars = new Array();
   stars.length = 5;
   stars.fill(false);
   for (let i = 0; i < grade; i++) {
     stars[i] = true;
   }
-  console.log(stars);
+
   return (
     <div className="rating">
       {stars.map((star) => {

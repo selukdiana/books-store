@@ -2,13 +2,13 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import { legacy_createStore as createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { HomePage } from './pages/home-page';
-import { Header } from './components/header';
+import { HomePage } from './pages/HomePage';
+import { Header } from './layout/Header';
 import { store } from './store';
-import { BookPage } from './pages/book-page';
-import { AuthPage } from './pages/auth-page';
-import { SearchPage } from './pages/search-page';
-import { OrderPage } from './pages/order-page';
+import { BookPage } from './pages/BookPage';
+import { AuthPage } from './pages/AuthPage';
+import { SearchPage } from './pages/SearchPage';
+import { OrderPage } from './pages/OrderPage';
 
 const App = () => {
   return (

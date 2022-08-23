@@ -114,6 +114,10 @@ svg {
     display: none;
   }
 
+  .header__store-title__icon{
+    display: block !important;
+  }
+
   .form {
     width: 100% !important;
   }

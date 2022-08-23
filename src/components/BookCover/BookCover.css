@@ -1,0 +1,12 @@
+
+.book-cover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 17rem;
+  width: 100%;
+  overflow: hidden;
+}
+.book-cover img {
+  height: 100%;
+}

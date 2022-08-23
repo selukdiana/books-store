@@ -1,18 +1,8 @@
 import React from 'react';
-import './tabs.css';
+import './Tabs.css';
 import classNames from 'classnames';
+import { ITabsProps } from '../../types/props';
 
-export interface ITab {
-  id: string | number;
-  label?: string | number;
-}
-
-export interface ITabsProps {
-  className?: string;
-  selectedId: string | number;
-  tabs: ITab[];
-  onClick: (id: string | number) => void;
-}
 
 export const Tabs = ({
   className,

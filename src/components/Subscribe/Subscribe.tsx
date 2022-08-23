@@ -1,11 +1,7 @@
 import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import './subscribe.css';
-
-interface ISubscribe {
-  email: string;
-  password: string;
-}
+import { ISubscribe } from '../../types';
+import './Subscribe.css';
 
 export const Subscribe = () => {
   const {
