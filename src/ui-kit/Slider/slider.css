@@ -11,3 +11,11 @@
   display: flex;
   justify-content: center;
 }
+
+.swiper h2{
+  position: absolute;
+}
+
+.swiper-pagination-bullet {
+  border: 1px solid #ffffff;
+}

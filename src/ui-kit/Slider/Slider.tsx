@@ -11,34 +11,36 @@ import { BookItem } from '../../components/BookItem';
 import { ISliderProps } from '../../types/props';
 
 export const Slider = ({ books }: ISliderProps) => {
-  console.log('slider');
   return (
-    <Swiper
-      modules={[Navigation, Pagination, Scrollbar, A11y]}
-      slidesPerView={3}
-      navigation
-      pagination={{ clickable: true }}
-      breakpoints={{
-        // when window width is >= 300px
-        300: {
-          slidesPerView: 1,
-        },
-        576: {
-          slidesPerView: 2,
-        },
-        1200: {
-          slidesPerView: 3,
-        },
-      }}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
-      className="slider"
-    >
-      {books.map((book: IBook) => (
-        <SwiperSlide>
-          <BookItem book={book} key={book.isbn13}></BookItem>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <>
+      <Swiper
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        slidesPerView={3}
+        navigation
+        pagination={{ clickable: true }}
+        breakpoints={{
+          // when window width is >= 300px
+          300: {
+            slidesPerView: 1,
+          },
+          576: {
+            slidesPerView: 2,
+          },
+          1200: {
+            slidesPerView: 3,
+          },
+        }}
+        onSlideChange={() => console.log('slide change')}
+        onSwiper={(swiper) => console.log(swiper)}
+        className="slider"
+      >
+        {books.length > 0 ? <h2>Similar books</h2> : null}
+        {books.map((book: IBook) => (
+          <SwiperSlide key={book.isbn13}>
+            <BookItem book={book}></BookItem>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </>
   );
 };

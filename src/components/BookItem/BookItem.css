@@ -9,6 +9,10 @@
   padding-bottom: 5rem;
 }
 
+.book-item:hover{
+  transform:translateY(-5%)
+}
+
 .book-item__title {
   font-size: 1.8rem;
   font-weight: bold;

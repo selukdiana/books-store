@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { AdditionalList } from '../../components/AdditionalList';
@@ -31,11 +31,13 @@ export const BookPage = () => {
 
   useEffect(() => {
     dispatch(getBookThunk(isbn13));
+  }, [params]);
+
+  useEffect(() => {
     dispatch(
       getSearchBooksThunk(currentBook?.subtitle.replace(/ /g, '%20'), '1')
     );
-  }, [params]);
-
+  }, [currentBook?.subtitle]);
 
   return !isFetching ? (
     !isError ? (
@@ -44,7 +46,7 @@ export const BookPage = () => {
           <h1 className="book-page__title">{currentBook.title}</h1>
           <div className="book-page__content">
             <div className="book-page__left">
-              <BookCover image={currentBook.image} size='25' />
+              <BookCover image={currentBook.image} size="25" />
               <BookGenre
                 genre={currentBook.subtitle}
                 key={currentBook.subtitle}
@@ -61,7 +63,7 @@ export const BookPage = () => {
           </div>
           <BookDescription description={currentBook.desc} />
           <Subscribe />
-          <Slider books={ books} />
+          <Slider books={books} />
         </div>
       ) : null
     ) : (

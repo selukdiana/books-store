@@ -15,8 +15,12 @@ export const Rating = ({ rating }: IRatingProps) => {
 
   return (
     <div className="rating">
-      {stars.map((star) => {
-        return star ? <StarIcon type="filled" /> : <StarIcon type="outlined" />;
+      {stars.map((star, index) => {
+        return star ? (
+          <StarIcon type="filled" key={index} />
+        ) : (
+          <StarIcon type="outlined" key={index} />
+        );
       })}
     </div>
   );

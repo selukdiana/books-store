@@ -24,7 +24,6 @@ const App = () => {
             <Route path="/:query/:page" element={<SearchPage />} />
             <Route path="/order" element={<OrderPage />} />
           </Routes>
-          <Footer/>
         </div>
       </Router>
     </Provider>

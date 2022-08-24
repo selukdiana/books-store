@@ -63,6 +63,3 @@ export const SearchPage = () => {
     <>Loading...</>
   );
 };
-function pagesCreator() {
-  throw new Error('Function not implemented.');
-}

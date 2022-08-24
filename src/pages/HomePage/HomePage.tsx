@@ -6,6 +6,7 @@ import { IRootState, INewReleasesBooksState } from '../../store/types';
 import { IBook } from '../../types';
 import { getNewReleasesBooksThunk } from '../../store/thunks/getNewReleasesBooksThunk';
 import { Subscribe } from '../../components/Subscribe';
+import { Footer } from '../../layout/Footer';
 
 export const HomePage = () => {
   const dispatch = useDispatch<any>();
@@ -28,7 +29,8 @@ export const HomePage = () => {
             <BookItem book={book} key={book.isbn13} />
           ))}
         </div>
-        <Subscribe/>
+        <Subscribe />
+        <Footer />
       </div>
     ) : (
       <>Request Error</>
