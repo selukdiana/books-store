@@ -1,7 +1,7 @@
-import React from 'react';
-import { AiOutlineSearch } from 'react-icons/ai';
-import { ISearchProps } from '../../types/props';
-import './Search.css';
+import React from "react";
+import { AiOutlineSearch } from "react-icons/ai";
+import { ISearchProps } from "../../types/props";
+import "./Search.css";
 
 export const Search = ({ handleClick }: ISearchProps) => {
   return (
@@ -10,7 +10,7 @@ export const Search = ({ handleClick }: ISearchProps) => {
       <input
         placeholder="Search..."
         className="search__input"
-        onKeyPress={handleClick}
+        onKeyDown={handleClick}
       />
     </div>
   );

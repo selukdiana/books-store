@@ -1,13 +1,13 @@
-import React from 'react';
-import { BsFillPersonFill } from 'react-icons/bs';
-import { useNavigate } from 'react-router-dom';
-import './UserBlock.css';
+import React from "react";
+import { BsFillPersonFill } from "react-icons/bs";
+import { useNavigate } from "react-router";
+import "./UserBlock.css";
 
 export const UserBlock = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/auth')
+    navigate("/auth");
   };
 
   return (

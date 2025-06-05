@@ -1,14 +1,14 @@
-import React from 'react';
-import { AiOutlineClose } from 'react-icons/ai';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { clearCart } from '../../../store/actions';
-import { IRootState } from '../../../store/types';
-import { ICartMenuProps } from '../../../types/props';
-import { calcTotalPrice } from '../../../utils/calcTotalPrice';
-import { Button } from '../../Button';
-import { CartItem } from './CartItem';
-import './CartMenu.css';
+import React from "react";
+import { AiOutlineClose } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
+import { clearCart } from "../../../store/actions";
+import { IRootState } from "../../../store/types";
+import { ICartMenuProps } from "../../../types/props";
+import { calcTotalPrice } from "../../../utils/calcTotalPrice";
+import { Button } from "../../Button";
+import { CartItem } from "./CartItem";
+import "./CartMenu.css";
 
 export const CartMenu = ({ setIsCartMenuVisible }: ICartMenuProps) => {
   const items = useSelector((state: IRootState) => state.cart.books);
@@ -18,7 +18,7 @@ export const CartMenu = ({ setIsCartMenuVisible }: ICartMenuProps) => {
     dispatch(clearCart());
   };
   const handleClickOrder = () => {
-    navigate('/order');
+    navigate("/order");
   };
   const handleCloseBtnClick = () => {
     setIsCartMenuVisible(false);
@@ -36,7 +36,7 @@ export const CartMenu = ({ setIsCartMenuVisible }: ICartMenuProps) => {
                 book={book}
               />
             ))
-          : 'Your cart is empty'}
+          : "Your cart is empty"}
       </div>
       {items.length > 0 ? (
         <div className="cart-menu__arrange">

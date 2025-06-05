@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import './HomePage.css';
-import { BookItem } from '../../components/BookItem';
-import { useDispatch, useSelector } from 'react-redux';
-import { IRootState, INewReleasesBooksState } from '../../store/types';
-import { IBook } from '../../types';
-import { getNewReleasesBooksThunk } from '../../store/thunks/getNewReleasesBooksThunk';
-import { Subscribe } from '../../components/Subscribe';
-import { Footer } from '../../layout/Footer';
+import React, { useState, useEffect } from "react";
+import "./HomePage.css";
+import { BookItem } from "../../components/BookItem";
+import { useDispatch, useSelector } from "react-redux";
+import { IRootState, INewReleasesBooksState } from "../../store/types";
+import { IBook } from "../../types";
+import { getNewReleasesBooksThunk } from "../../store/thunks/getNewReleasesBooksThunk";
+import { Subscribe } from "../../components/Subscribe";
 
 export const HomePage = () => {
+  debugger;
   const dispatch = useDispatch<any>();
 
   const { books, isFetching, isError } = useSelector<
@@ -19,7 +19,7 @@ export const HomePage = () => {
   useEffect(() => {
     dispatch(getNewReleasesBooksThunk());
   }, []);
-  
+
   return !isFetching ? (
     !isError ? (
       <div className="home-page">
@@ -30,7 +30,6 @@ export const HomePage = () => {
           ))}
         </div>
         <Subscribe />
-        <Footer />
       </div>
     ) : (
       <>Request Error</>

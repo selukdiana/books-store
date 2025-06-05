@@ -1,11 +1,11 @@
-import React from 'react';
-import { BookGenre } from '../BookGenre';
-import { BookBuy } from '../BookBuy';
-import { BookCover } from '../BookCover';
-import { BookFavorite } from '../BookFavorite';
-import { useNavigate } from 'react-router-dom';
-import './BookItem.css';
-import { IBookProps } from '../../types/props';
+import React from "react";
+import { BookGenre } from "../BookGenre";
+import { BookBuy } from "../BookBuy";
+import { BookCover } from "../BookCover";
+import { BookFavorite } from "../BookFavorite";
+import "./BookItem.css";
+import { IBookProps } from "../../types/props";
+import { useNavigate } from "react-router";
 
 export const BookItem = (book: IBookProps) => {
   const bookItem = book.book;
