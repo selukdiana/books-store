@@ -1,11 +1,10 @@
-import React from 'react';
-import { IBookProps } from '../../types/props';
-import { AdditionalAttribute } from './AdditionalAttribute';
-import './AdditionalList.css';
+import { type IBookProps } from "../../types/props";
+import { AdditionalAttribute } from "./AdditionalAttribute";
+import "./AdditionalList.css";
 
 export const AdditionalList = (book: IBookProps) => {
   const bookItem = book.book;
-  const urls = bookItem.pdf ? Object.keys(bookItem.pdf) : [''];
+  const urls = bookItem.pdf ? Object.keys(bookItem.pdf) : [""];
   return (
     <ul className="additional-list">
       <AdditionalAttribute name="Title" value={bookItem.title} />

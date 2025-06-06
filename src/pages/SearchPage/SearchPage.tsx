@@ -1,39 +1,37 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import { BookItem } from "../../components/BookItem";
-import { getSearchBooksThunk } from "../../store/thunks/getSearchBooksThunk";
-import { IRootState, ISearchState } from "../../store/types";
-import { IBook } from "../../types";
 import { createPages } from "../../utils/pagesCreator";
 import "./SearchPage.css";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { getSearchBooks } from "../../store/slices/searchSlice";
 
 export const SearchPage = () => {
-  const dispatch = useDispatch<any>();
+  debugger;
+  const dispatch = useAppDispatch();
   const params = useParams<string>();
   const navigate = useNavigate();
 
   const query = params.query;
 
-  const { books, page, total, isFetching, isError } = useSelector<
-    IRootState,
-    ISearchState
-  >((state) => state.search);
+  const { books, page, total, isFetching, isError } = useAppSelector(
+    (state) => state.search
+  );
 
   useEffect(() => {
-    dispatch(getSearchBooksThunk(query, "1"));
-  }, [query]);
+    dispatch(getSearchBooks({ query: query, page: "1" }));
+  }, [query, dispatch]);
 
   const pages = new Array<number>();
   const pagesCount = Math.ceil(Number(total) / 10);
   createPages(pages, pagesCount, Number(page));
 
   return !isFetching ? (
-    !isError || books.length != 0 ? (
+    !isError || books.length !== 0 ? (
       books ? (
         <div className="search-page">
           <div className="books-list">
-            {books.map((book: IBook) => (
+            {books.map((book) => (
               <BookItem book={book} key={book.isbn13} />
             ))}
           </div>
@@ -47,7 +45,9 @@ export const SearchPage = () => {
                 key={index}
                 onClick={() => {
                   navigate(`/${query}/${pageItem}`);
-                  dispatch(getSearchBooksThunk(query, String(pageItem)));
+                  dispatch(
+                    getSearchBooks({ query: query, page: String(pageItem) })
+                  );
                 }}
               >
                 {pageItem}

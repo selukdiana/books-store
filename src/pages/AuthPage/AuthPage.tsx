@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { Tabs } from '../../ui-kit/Tabs';
-import './AuthPage.css';
-import { SignInForm } from '../../ui-kit/SignInForm';
-import { SignUpForm } from '../../ui-kit/SignUpForm';
-import { Modal } from '../../ui-kit/Modal';
-import { AiOutlineCheckCircle } from 'react-icons/ai';
-import { ITab } from '../../types';
+import { useState } from "react";
+import { Tabs } from "../../ui-kit/Tabs";
+import "./AuthPage.css";
+import { SignInForm } from "../../ui-kit/SignInForm";
+import { SignUpForm } from "../../ui-kit/SignUpForm";
+import { Modal } from "../../ui-kit/Modal";
+import { AiOutlineCheckCircle } from "react-icons/ai";
+import { type ITab } from "../../types";
 
 export const AuthPage = () => {
   const tabs: ITab[] = [
-    { id: '1', label: 'Sign in' },
-    { id: '2', label: 'Sign up' },
+    { id: "1", label: "Sign in" },
+    { id: "2", label: "Sign up" },
   ];
 
   const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
@@ -34,7 +34,7 @@ export const AuthPage = () => {
       </div>
 
       <Modal active={modalActive} setActive={setModalActive}>
-        <AiOutlineCheckCircle size={'10rem'} color={'rgb(85, 88, 237)'} />
+        <AiOutlineCheckCircle size={"10rem"} color={"rgb(85, 88, 237)"} />
       </Modal>
     </section>
   );

@@ -1,20 +1,19 @@
-import React from 'react';
-import classNames from 'classnames';
-import './Button.css';
-import { IButtonProps } from '../../types/props';
+import classNames from "classnames";
+import "./Button.css";
+import { type IButtonProps } from "../../types/props";
 
 export const Button = ({
   onClick,
   type,
   children,
-  size = 's',
+  size = "s",
 }: IButtonProps) => {
   const btnClass = classNames({
     btn: true,
-    'btn--secondary': type === 'secondary',
-    'btn--primary': type === 'primary',
-    'btn--small': size === 's',
-    'btn--medium': size === 'm',
+    "btn--secondary": type === "secondary",
+    "btn--primary": type === "primary",
+    "btn--small": size === "s",
+    "btn--medium": size === "m",
   });
 
   return (

@@ -1,8 +1,9 @@
-import { Dispatch, MouseEventHandler, SetStateAction } from 'react';
-import { IBook, ITab } from '.';
+import type { Book } from "../store/slices/bookSlice";
+import type { ITab } from ".";
+import type { Dispatch, MouseEventHandler, SetStateAction } from "react";
 
 export interface IBookProps {
-  book: IBook;
+  book: Book;
 }
 
 export interface ICartMenuProps {
@@ -15,7 +16,7 @@ export interface ICartItemProps {
   image: string;
   price: string;
   title: string;
-  book: IBook;
+  book: Book;
 }
 
 export type IFavoriteItemProps = ICartItemProps;
@@ -52,7 +53,7 @@ export interface IFavoriteButtonProps {
 }
 
 export interface IOrderItemProps {
-  book: IBook;
+  book: Book;
 }
 
 export interface IRatingProps {
@@ -64,7 +65,7 @@ export interface IStarIconProps {
 }
 
 export interface IBookProps {
-  book: IBook;
+  book: Book;
 }
 
 export interface IModalProps {
@@ -93,7 +94,7 @@ export interface ISignUpFormProps {
 }
 
 export interface ISliderProps {
-  books: Array<IBook> | [];
+  books: Array<Book> | [];
 }
 
 export interface ITabsProps {

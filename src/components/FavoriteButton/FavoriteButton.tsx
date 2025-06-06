@@ -1,13 +1,12 @@
-import React, { MouseEventHandler } from 'react';
-import { MdOutlineFavorite, MdOutlineFavoriteBorder } from 'react-icons/md';
-import { IFavoriteButtonProps } from '../../types/props';
-import './FavoriteButton.css';
+import { MdOutlineFavorite, MdOutlineFavoriteBorder } from "react-icons/md";
+import { type IFavoriteButtonProps } from "../../types/props";
+import "./FavoriteButton.css";
 
 export const FavoriteButton = ({
   onClickHandler,
   type,
 }: IFavoriteButtonProps) => {
-  const isPrimary = type === 'primary';
+  const isPrimary = type === "primary";
   return isPrimary ? (
     <MdOutlineFavorite onClick={onClickHandler} color="red" size={25} />
   ) : (

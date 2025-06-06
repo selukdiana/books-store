@@ -1,18 +1,14 @@
-import React, { useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import "./CartBlock.css";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { useSelector } from "react-redux";
-import { IRootState } from "../../store/types";
-import { IBook } from "../../types";
 import { CartMenu } from "./CartMenu";
 import { calcTotalPrice } from "../../utils/calcTotalPrice";
 import { ItemsInCart } from "./ItemsInCart";
 import { useNavigate } from "react-router";
+import { useAppSelector } from "../../store/hooks";
 
 export const CartBlock = () => {
-  const items: Array<IBook> = useSelector<IRootState, Array<IBook>>(
-    (state) => state.cart.books
-  );
+  const items = useAppSelector((state) => state.cart.books);
 
   const [isCartMenuVisible, setIsCartMenuVisible] = useState(false);
 

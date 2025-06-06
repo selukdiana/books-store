@@ -1,31 +1,30 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from "react";
+import { type IBookProps } from "../../types/props";
+import { FavoriteButton } from "../FavoriteButton";
+import "./BookFavorite.css";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import {
   getItemFromFavorite,
   setItemInFavorite,
-} from '../../store/actions';
-import { IRootState } from '../../store/types';
-import { IBookProps } from '../../types/props';
-import { FavoriteButton } from '../FavoriteButton';
-import './BookFavorite.css';
+} from "../../store/slices/favoriteSlice";
 
-export const BookFavorite = (book: IBookProps) => {
-  const dispatch = useDispatch();
-  const items = useSelector((state: IRootState) => state.favorite.books);
-  const isItemFavorite= items.some((item) => item.isbn13 == book.book.isbn13)
-  
+export const BookFavorite = ({ book }: IBookProps) => {
+  const dispatch = useAppDispatch();
+  const items = useAppSelector((state) => state.favorite.books);
+  const isItemFavorite = items.some((item) => item.isbn13 === book.isbn13);
+
   const handleClick = (event: React.MouseEvent<SVGElement>) => {
     event.stopPropagation();
-    
+
     isItemFavorite
-      ? dispatch(getItemFromFavorite(book.book))
-      : dispatch(setItemInFavorite(book.book));
+      ? dispatch(getItemFromFavorite(book.isbn13))
+      : dispatch(setItemInFavorite(book));
   };
 
   return (
     <div className="book-favorite">
       <FavoriteButton
-        type={isItemFavorite ? 'primary' : 'secondary'}
+        type={isItemFavorite ? "primary" : "secondary"}
         onClickHandler={handleClick}
       />
     </div>

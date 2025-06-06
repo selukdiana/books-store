@@ -1,32 +1,30 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getItemFromCart, setItemInCart } from '../../store/actions';
-import { IRootState } from '../../store/types';
-import './BookBuy.css';
-import { IBookProps } from '../../types/props';
-import { Button } from '../Button';
+import "./BookBuy.css";
+import { type IBookProps } from "../../types/props";
+import { Button } from "../Button";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { getItemFromCart, setItemInCart } from "../../store/slices/cartSlice";
 
-export const BookBuy = (book: IBookProps) => {
-  const dispatch = useDispatch();
-  const items = useSelector((state: IRootState) => state.cart.books);
-  const isItemInCart = items.some((item) => item.isbn13 == book.book.isbn13);
+export const BookBuy = ({ book }: IBookProps) => {
+  const dispatch = useAppDispatch();
+  const items = useAppSelector((state) => state.cart.books);
+  const isItemInCart = items.some((item) => item.isbn13 === book.isbn13);
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     event.stopPropagation();
 
     isItemInCart
-      ? dispatch(getItemFromCart(book.book))
-      : dispatch(setItemInCart(book.book));
+      ? dispatch(getItemFromCart(book.isbn13))
+      : dispatch(setItemInCart(book));
   };
 
   return (
     <div className="book-buy">
-      <span className="book-buy__price">{book.book.price}</span>
+      <span className="book-buy__price">{book.price}</span>
       <Button
-        type={isItemInCart ? 'secondary' : 'primary'}
+        type={isItemInCart ? "secondary" : "primary"}
         onClick={handleClick}
       >
-        {isItemInCart ? 'Remove from Cart' : 'Add to Cart'}
+        {isItemInCart ? "Remove from Cart" : "Add to Cart"}
       </Button>
     </div>
   );

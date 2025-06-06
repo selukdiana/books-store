@@ -1,4 +1,3 @@
-import React from "react";
 import { BsFillPersonFill } from "react-icons/bs";
 import { useNavigate } from "react-router";
 import "./UserBlock.css";

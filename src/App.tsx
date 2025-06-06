@@ -1,12 +1,12 @@
 import { Provider } from "react-redux";
 import { HomePage } from "./pages/HomePage";
-import { store } from "./store";
 import { BookPage } from "./pages/BookPage";
 import { AuthPage } from "./pages/AuthPage";
 import { SearchPage } from "./pages/SearchPage";
 import { OrderPage } from "./pages/OrderPage";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import { Layout } from "./layout/Layout";
+import store from "./store";
 
 const router = createBrowserRouter([
   {

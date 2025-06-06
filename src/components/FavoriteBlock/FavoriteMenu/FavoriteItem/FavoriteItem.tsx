@@ -1,17 +1,14 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { AiOutlineCloseCircle } from 'react-icons/ai';
-import './FavoriteItem.css';
-import {
-  getItemFromFavorite,
-} from '../../../../store/actions';
-import { IFavoriteItemProps } from '../../../../types/props';
+import { useDispatch } from "react-redux";
+import { AiOutlineCloseCircle } from "react-icons/ai";
+import "./FavoriteItem.css";
+import { type IFavoriteItemProps } from "../../../../types/props";
+import { getItemFromFavorite } from "../../../../store/slices/favoriteSlice";
 
 export const FavoriteItem = ({ title, price, book }: IFavoriteItemProps) => {
   const dispatch = useDispatch();
 
   const handleDeleteClick = () => {
-    dispatch(getItemFromFavorite(book));
+    dispatch(getItemFromFavorite(book.isbn13));
   };
 
   return (

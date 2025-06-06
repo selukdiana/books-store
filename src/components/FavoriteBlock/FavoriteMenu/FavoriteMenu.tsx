@@ -1,20 +1,18 @@
-import React, { Dispatch, SetStateAction } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { clearFavorite } from '../../../store/actions';
-import { IRootState } from '../../../store/types';
-import { FavoriteItem } from './FavoriteItem';
-import './FavoriteMenu.css';
-import { AiOutlineClose } from 'react-icons/ai';
-import { IFavoriteMenuProps } from '../../../types/props';
-import { Button } from '../../Button';
+import { FavoriteItem } from "./FavoriteItem";
+import "./FavoriteMenu.css";
+import { AiOutlineClose } from "react-icons/ai";
+import { type IFavoriteMenuProps } from "../../../types/props";
+import { Button } from "../../Button";
+import { useAppDispatch, useAppSelector } from "../../../store/hooks";
+import { clearFavorite } from "../../../store/slices/favoriteSlice";
 
 export const FavoriteMenu = ({
   setIsFavoriteMenuVisible,
 }: IFavoriteMenuProps) => {
-  const items = useSelector((state: IRootState) => state.favorite.books);
+  const items = useAppSelector((state) => state.favorite.books);
 
-  const dispatch = useDispatch();
-  
+  const dispatch = useAppDispatch();
+
   const handleClick = () => {
     dispatch(clearFavorite());
   };
@@ -36,7 +34,7 @@ export const FavoriteMenu = ({
                 book={book}
               />
             ))
-          : 'You have no Saved Items'}
+          : "You have no Saved Items"}
       </div>
       {items.length > 0 ? (
         <div className="favorite-menu__arrange">

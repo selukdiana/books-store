@@ -1,6 +1,5 @@
-import React from 'react';
-import { IBookCoverProps } from '../../types/props';
-import './BookCover.css';
+import type { IBookCoverProps } from "../../types/props";
+import "./BookCover.css";
 
 export const BookCover = ({ image, size }: IBookCoverProps) => {
   return (

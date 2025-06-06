@@ -1,15 +1,10 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { OrderItem } from '../../components/OrderItem';
-import { IRootState } from '../../store/types';
-import { IBook } from '../../types';
-import { calcTotalPrice } from '../../utils/calcTotalPrice';
-import './OrderPage.css';
+import { OrderItem } from "../../components/OrderItem";
+import { calcTotalPrice } from "../../utils/calcTotalPrice";
+import "./OrderPage.css";
+import { useAppSelector } from "../../store/hooks";
 
 export const OrderPage = () => {
-  const items = useSelector<IRootState, Array<IBook>>(
-    (state) => state.cart.books
-  );
+  const items = useAppSelector((state) => state.cart.books);
 
   return items.length ? (
     <div className="order-page">

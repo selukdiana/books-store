@@ -1,43 +1,41 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { AdditionalList } from '../../components/AdditionalList';
-import { BookBuy } from '../../components/BookBuy';
-import { BookCover } from '../../components/BookCover';
-import { BookDescription } from '../../components/BookDescription';
-import { BookFavorite } from '../../components/BookFavorite';
-import { BookGenre } from '../../components/BookGenre';
-import { Rating } from '../../components/Rating';
-import { Subscribe } from '../../components/Subscribe';
-import { getBookThunk } from '../../store/thunks/getBookThunk';
-import { getSearchBooksThunk } from '../../store/thunks/getSearchBooksThunk';
-import { IBookState, IRootState, ISearchState } from '../../store/types';
-import { IBook } from '../../types';
-import { Slider } from '../../ui-kit/Slider';
-import './BookPage.css';
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { AdditionalList } from "../../components/AdditionalList";
+import { BookBuy } from "../../components/BookBuy";
+import { BookCover } from "../../components/BookCover";
+import { BookDescription } from "../../components/BookDescription";
+import { BookFavorite } from "../../components/BookFavorite";
+import { BookGenre } from "../../components/BookGenre";
+import { Rating } from "../../components/Rating";
+import { Subscribe } from "../../components/Subscribe";
+import { Slider } from "../../ui-kit/Slider";
+import "./BookPage.css";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { getBook } from "../../store/slices/bookSlice";
+import { getSearchBooks } from "../../store/slices/searchSlice";
 
 export const BookPage = () => {
-  const dispatch = useDispatch<any>();
+  const dispatch = useAppDispatch();
   const params = useParams<string>();
   const isbn13 = params.isbn13;
-  const { currentBook, isFetching, isError } = useSelector<
-    IRootState,
-    IBookState
-  >((state) => state.book);
-
-  const books = useSelector<IRootState, Array<IBook>>(
-    (state) => state.search.books
+  const { currentBook, isFetching, isError } = useAppSelector(
+    (state) => state.book
   );
 
+  const books = useAppSelector((state) => state.search.books);
+
   useEffect(() => {
-    dispatch(getBookThunk(isbn13));
-  }, [params]);
+    dispatch(getBook(isbn13));
+  }, [params, dispatch, isbn13]);
 
   useEffect(() => {
     dispatch(
-      getSearchBooksThunk(currentBook?.subtitle.replace(/ /g, '%20'), '1')
+      getSearchBooks({
+        query: currentBook?.subtitle.replace(/ /g, "%20"),
+        page: "1",
+      })
     );
-  }, [currentBook?.subtitle]);
+  }, [currentBook?.subtitle, dispatch]);
 
   return !isFetching ? (
     !isError ? (

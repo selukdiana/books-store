@@ -1,19 +1,17 @@
-import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { clearCart } from "../../../store/actions";
-import { IRootState } from "../../../store/types";
-import { ICartMenuProps } from "../../../types/props";
+import { type ICartMenuProps } from "../../../types/props";
 import { calcTotalPrice } from "../../../utils/calcTotalPrice";
 import { Button } from "../../Button";
 import { CartItem } from "./CartItem";
 import "./CartMenu.css";
+import { useAppDispatch, useAppSelector } from "../../../store/hooks";
+import { clearCart } from "../../../store/slices/cartSlice";
 
 export const CartMenu = ({ setIsCartMenuVisible }: ICartMenuProps) => {
-  const items = useSelector((state: IRootState) => state.cart.books);
+  const items = useAppSelector((state) => state.cart.books);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const handleClick = () => {
     dispatch(clearCart());
   };

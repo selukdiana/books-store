@@ -1,14 +1,13 @@
-import React from 'react';
-import './Slider.css';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-import 'swiper/css';
-import { IBook } from '../../types';
-import { BookItem } from '../../components/BookItem';
-import { ISliderProps } from '../../types/props';
+import "./Slider.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import "swiper/css";
+import { BookItem } from "../../components/BookItem";
+import type { ISliderProps } from "../../types/props";
+import type { Book } from "../../store/slices/bookSlice";
 
 export const Slider = ({ books }: ISliderProps) => {
   return (
@@ -30,12 +29,12 @@ export const Slider = ({ books }: ISliderProps) => {
             slidesPerView: 3,
           },
         }}
-        onSlideChange={() => console.log('slide change')}
+        onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
         className="slider"
       >
         {books.length > 0 ? <h2>Similar books</h2> : null}
-        {books.map((book: IBook) => (
+        {books.map((book: Book) => (
           <SwiperSlide key={book.isbn13}>
             <BookItem book={book}></BookItem>
           </SwiperSlide>

@@ -1,33 +1,28 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./HomePage.css";
 import { BookItem } from "../../components/BookItem";
-import { useDispatch, useSelector } from "react-redux";
-import { IRootState, INewReleasesBooksState } from "../../store/types";
-import { IBook } from "../../types";
-import { getNewReleasesBooksThunk } from "../../store/thunks/getNewReleasesBooksThunk";
 import { Subscribe } from "../../components/Subscribe";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { getNewReleasesBooks } from "../../store/slices/newReleasesBooksSlice";
 
 export const HomePage = () => {
-  debugger;
-  const dispatch = useDispatch<any>();
+  const dispatch = useAppDispatch();
 
-  const { books, isFetching, isError } = useSelector<
-    IRootState,
-    INewReleasesBooksState
-  >((state) => state.newReleases);
+  const { books, isFetching, isError } = useAppSelector(
+    (state) => state.newReleasesBooks
+  );
 
   useEffect(() => {
-    dispatch(getNewReleasesBooksThunk());
-  }, []);
+    dispatch(getNewReleasesBooks());
+  }, [dispatch]);
 
   return !isFetching ? (
     !isError ? (
       <div className="home-page">
         <h2>New Releases Books</h2>
         <div className="books-list">
-          {books.map((book: IBook) => (
-            <BookItem book={book} key={book.isbn13} />
-          ))}
+          {books.length &&
+            books.map((book) => <BookItem book={book} key={book.isbn13} />)}
         </div>
         <Subscribe />
       </div>

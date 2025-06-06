@@ -1,6 +1,6 @@
-import { IBook } from '../types';
+import type { Book } from "../store/slices/bookSlice";
 
-export const calcTotalPrice = (items: Array<IBook>) => {
+export const calcTotalPrice = (items: Book[]) => {
   const prices = items.map((book) => parseFloat(book.price.substring(1)));
 
   const totalPrice: number = prices.reduce((prev: number, cur: number) => {

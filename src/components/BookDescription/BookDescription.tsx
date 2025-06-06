@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { Tabs } from '../../ui-kit/Tabs';
-import { IBookDescriptionProps } from '../../types/props';
-import './BookDescription.css';
-import { ITab } from '../../types';
+import { useState } from "react";
+import { Tabs } from "../../ui-kit/Tabs";
+import { type IBookDescriptionProps } from "../../types/props";
+import "./BookDescription.css";
+import { type ITab } from "../../types";
 
 export const BookDescription = ({ description }: IBookDescriptionProps) => {
-  const tabs: ITab[] = [{ id: '1', label: 'Description' }];
+  const tabs: ITab[] = [{ id: "1", label: "Description" }];
 
   const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 

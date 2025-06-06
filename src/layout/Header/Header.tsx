@@ -11,7 +11,7 @@ export const Header = () => {
   const navigate = useNavigate();
 
   const handleSearchClick = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    if (event.key == "Enter") {
+    if (event.key === "Enter") {
       const query = (event.currentTarget as HTMLInputElement).value;
       navigate(`/${query}/1`);
     }
