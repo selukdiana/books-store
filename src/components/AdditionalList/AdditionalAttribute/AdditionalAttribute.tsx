@@ -5,6 +5,5 @@ export const AdditionalAttribute = ({
   name,
   value,
 }: IAdditionalAttributeProps) => {
-  console.log(name);
   return <li className="additional-attribute">{`${name}: ${value}`}</li>;
 };

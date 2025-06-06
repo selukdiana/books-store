@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import "./HomePage.css";
 import { BookItem } from "../../components/BookItem";
 import { Subscribe } from "../../components/Subscribe";

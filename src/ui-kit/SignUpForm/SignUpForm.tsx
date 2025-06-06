@@ -14,8 +14,7 @@ export const SignUpForm = ({ active, setActive }: ISignUpFormProps) => {
     mode: "onBlur",
   });
 
-  const onSubmit: SubmitHandler<ISignUpFormInput> = (data: any) => {
-    console.log(JSON.stringify(data));
+  const onSubmit: SubmitHandler<ISignUpFormInput> = () => {
     reset();
   };
 

@@ -51,7 +51,6 @@ const searchSlice = createSlice({
           error: string;
         }>
       ) => {
-        debugger;
         const { books, total, page } = action.payload;
         state.books = books;
         state.total = total;

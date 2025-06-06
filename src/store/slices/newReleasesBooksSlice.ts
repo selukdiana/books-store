@@ -38,7 +38,6 @@ const newReleasesBooksSlice = createSlice({
         state,
         action: PayloadAction<{ books: Book[]; error: string; total: string }>
       ) => {
-        debugger;
         const books = action.payload.books;
         state.books = books;
         state.isFetching = false;

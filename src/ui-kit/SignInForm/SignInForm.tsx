@@ -13,7 +13,7 @@ export const SignInForm = ({ active, setActive }: ISignInFormProps) => {
     mode: "onBlur",
   });
 
-  const onSubmit: SubmitHandler<ISignInFormInput> = (data: any) => {
+  const onSubmit: SubmitHandler<ISignInFormInput> = () => {
     reset();
   };
 

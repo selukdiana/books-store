@@ -7,7 +7,6 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { getSearchBooks } from "../../store/slices/searchSlice";
 
 export const SearchPage = () => {
-  debugger;
   const dispatch = useAppDispatch();
   const params = useParams<string>();
   const navigate = useNavigate();

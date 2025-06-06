@@ -12,7 +12,7 @@ export const Subscribe = () => {
     mode: "onBlur",
   });
 
-  const onSubmit: SubmitHandler<ISubscribe> = (data: any) => {
+  const onSubmit: SubmitHandler<ISubscribe> = () => {
     reset();
   };
 

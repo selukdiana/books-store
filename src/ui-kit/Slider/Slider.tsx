@@ -1,13 +1,10 @@
-import "./Slider.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
-import "swiper/css";
 import { BookItem } from "../../components/BookItem";
 import type { ISliderProps } from "../../types/props";
 import type { Book } from "../../store/slices/bookSlice";
+import "swiper/swiper-bundle.css";
+import "./Slider.css";
 
 export const Slider = ({ books }: ISliderProps) => {
   return (
